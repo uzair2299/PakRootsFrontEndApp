@@ -1,0 +1,74 @@
+
+.root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+  }
+  
+  .paper {
+    padding: 16px;
+    margin: auto;
+  }
+
+  .logo {
+    width: 50px; /* Adjust the size of the image as needed */
+    height: 50px;
+    border-radius: 50%; /* Make the image round */
+    margin-right: 10px; /* Add some spacing between the image and the heading */
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .full-width-button {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .remember-checkbox {
+    margin-right: 10px;
+  }
+  
+  .forgot-password {
+    color: lightgray; /* Replace with your desired link color */
+  }
+
+
+  
+  
+  
+  
+  
+  
+  
+  
