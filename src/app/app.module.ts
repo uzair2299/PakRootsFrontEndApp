@@ -19,11 +19,13 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

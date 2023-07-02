@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent {
     password: ''
   }
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+    private router: Router) { }
 
   submitForm() {
     console.log(this.login.userName);
@@ -27,11 +29,14 @@ export class LoginComponent {
         return of(null); // return an observable with a default value or handle the error gracefully
       })
     )
-    .subscribe(response => {
-      console.log(response);
-      // handle the response data
-    });
-    
+      .subscribe((response :any) => {
+        console.log(response.token);
+        // handle the response data
+        // Store the JWT token in the local storage
+        localStorage.setItem('jwtToken', response.token);
+        this.router.navigate(['/home']);
+      });
+
 
 
   }
