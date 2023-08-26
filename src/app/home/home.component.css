@@ -36,4 +36,16 @@
     margin-left: 240px;
     padding: 16px;
   }
+  .colorful-icon {
+    color: #FF0000; /* Red */
+  }
+
+  .custom-menu {
+    width: 500px; /* Set your desired width */
+  }
+
+  .custom-menu-item {
+    min-width: 250px; /* Set your desired minimum width */
+  }
   
+    
