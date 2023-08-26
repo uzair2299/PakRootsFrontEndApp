@@ -19,6 +19,10 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { LoginComponent } from './login/login.component';
@@ -26,12 +30,18 @@ import { HomeComponent } from './home/home.component';
 
 
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ToolbarComponent,
+    ForgetPasswordComponent,
+    NotFoundComponent
   ],
   imports: [
     HttpClientModule,
@@ -51,7 +61,9 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
     MatDialogModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
