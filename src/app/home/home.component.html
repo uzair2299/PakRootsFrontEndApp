@@ -36,25 +36,11 @@
       <mat-icon>settings</mat-icon>
       <span>Settings</span>
     </button>
-    <button mat-menu-item class="custom-menu-item">
+    <button mat-menu-item class="custom-menu-item"  (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span>Sign Out</span>
     </button>
   </mat-menu>
-  <!-- <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu> -->
 </mat-toolbar>
 
 <div class="sidebar">
