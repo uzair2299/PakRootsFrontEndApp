@@ -25,23 +25,25 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ToolbarComponent,
     ForgetPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ToolbarComponent,
+    NavBarComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,60 @@
+.toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  .spacer {
+    flex-grow: 1;
+  }
+  
+ 
+  mat-sidenav{
+    height: 100%;
+  }
+
+  mat-sidenav-content{
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 240px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .sidebar h4 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .sidebar button mat-icon {
+    margin-right: 8px;
+  }
+  
+  .main-content {
+    margin-left: 240px;
+    padding: 16px;
+  }
+  .colorful-icon {
+    color: #FF0000; /* Red */
+  }
+
+  .custom-menu {
+    width: 500px; /* Set your desired width */
+  }
+
+  .custom-menu-item {
+    min-width: 250px; /* Set your desired minimum width */
+  }
+  
+    
