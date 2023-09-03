@@ -6,6 +6,8 @@ AuthService
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -19,14 +21,20 @@ export class LoginComponent {
     password: ''
   }
 
+
+  loginForm = new FormGroup({
+    userName : new FormControl(''),
+    password : new FormControl(''),
+  });
+
   constructor(private authService: AuthService,
     private router: Router) { }
 
   submitForm() {
-    console.log(this.login.userName);
-    console.log(this.login.password);
+    console.log(this.loginForm.value);
 
-    this.authService.login(this.login)
+
+    this.authService.login(this.loginForm.value)
       .subscribe( success => {
         console.log("response from login",success)
         if (success) {

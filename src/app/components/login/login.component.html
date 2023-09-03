@@ -1,9 +1,8 @@
-<div class="root">
+<!-- <div class="root">
     <mat-card class="paper">
         <div class="header">
             <h1>Login</h1>
             {{login | json}}
-           <!--<img src="path_to_your_image" alt="Logo" class="logo">--> 
           </div>
         <form #loginForm (ngSubmit)="submitForm()">
             <mat-form-field appearance="outline" class="mat-form-field ">
@@ -15,6 +14,39 @@
             <mat-form-field appearance="outline" class="mat-form-field ">
                 <mat-label>Password</mat-label>
                 <input matInput placeholder="" [(ngModel)]="login.password" type="password" name="password">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <div class="row">
+                <mat-checkbox class="remember-checkbox">Remember Me</mat-checkbox>
+                <a routerLink="/forgotPassword" class="forgot-password">Forgot Password</a>
+              </div>
+            <div class="button-container">
+                <button mat-raised-button color="primary" class="full-width-button" type="submit">Login</button>
+              </div>
+        </form>
+    </mat-card> 
+</div> -->
+
+
+
+<div class="root">
+    <mat-card class="paper">
+        <div class="header">
+            <h1>Login</h1>
+            <!-- {{login | json}} -->
+           <!--<img src="path_to_your_image" alt="Logo" class="logo">--> 
+          </div>
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+            <mat-form-field appearance="outline" class="mat-form-field ">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="" type="text" name="userName" formControlName="userName" >
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="mat-form-field ">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder=""  type="password" name="password" formControlName="password">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
