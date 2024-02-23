@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<app-toolbar *ngIf="showTopBar"></app-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer #sideDrawer mode="side" [(opened)]="isSidebarOpen">
+        <app-sidebar></app-sidebar>
+
+      </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+        <!-- <app-footer *ngIf="showTopBar"></app-footer> -->
+        <h2>hello</h2>
+      </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+
+<!-- The <mat-drawer-container> is a component provided by Angular Material that is used to create layouts with a responsive side navigation drawer. It serves as a container for the content area and the side navigation drawer. -->

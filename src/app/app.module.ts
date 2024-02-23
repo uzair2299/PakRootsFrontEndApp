@@ -21,6 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -32,6 +33,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {SidebarComponent  } from './components/sidebar/sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
@@ -43,7 +45,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     ForgetPasswordComponent,
     NotFoundComponent,
     ToolbarComponent,
-    NavBarComponent
+    NavBarComponent,
+    SidebarComponent
+
   ],
   imports: [
     HttpClientModule,
@@ -65,7 +69,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true

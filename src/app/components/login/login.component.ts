@@ -30,7 +30,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     userName : new FormControl('testing',Validators.required),
-    password : new FormControl('asdfghjQ1',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)]),
+    password : new FormControl('asdfghA1',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)]),
   });
 
   constructor(private authService: AuthService,
@@ -39,22 +39,25 @@ export class LoginComponent {
   submitForm() {
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
-      this.authService.login(this.loginForm.value)
-        .subscribe(
-          {
-            next: (data: any) => {
-              // Handle successful login
-              this.router.navigate(['/home']);
-            },
-            error: (error: any) => {
-              // Handle error (including ERR_CONNECTION_REFUSED)
-              console.error('Login failed:', error);
-            },
-            complete: () => {
-              // Handle completion (if needed)
-            }
-          })
-        }
+      // this.authService.login(this.loginForm.value)
+      //   .subscribe(
+      //     {
+      //       next: (data: any) => {
+      //         console.log(data);
+      //         // Handle successful login
+      //         this.router.navigate(['/home']);
+      //       },
+      //       error: (error: any) => {
+      //         // Handle error (including ERR_CONNECTION_REFUSED)
+      //         console.error('Login failed:', error);
+      //       },
+      //       complete: () => {
+      //         // Handle completion (if needed)
+      //       }
+      //     })
+      this.router.navigate(['/home']);    
+    }
+        
     else{
       console.error("Invalid form check user input",this.loginForm.value);
     }

@@ -12,3 +12,10 @@
     background-color: #f1f1f1;
   }
   
+  mat-drawer {
+    width: 220px;
+  }
+  
+  mat-drawer-container {
+    height: 100%;
+  }

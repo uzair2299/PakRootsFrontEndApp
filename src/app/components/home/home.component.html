@@ -1,4 +1,4 @@
-<mat-sidenav-container class="example-container">
+<!-- <mat-sidenav-container class="example-container">
   <mat-sidenav #sidebar mode="side" opened>
     <div class="sidebar">
       <button mat-button>
@@ -43,7 +43,6 @@
         <mat-icon>fiber_manual_record</mat-icon>
         <span>Channel 3</span>
       </button>
-      <!-- Add more subscription channels as needed -->
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -62,10 +61,7 @@
       <button mat-icon-button>
         <mat-icon>notifications</mat-icon>
       </button>
-      <!-- <button mat-icon-button>
-        <mat-icon>account_circle</mat-icon>
-      </button> -->
-      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+         <button mat-icon-button [matMenuTriggerFor]="accountMenu">
         <mat-icon class="colorful-icon">account_circle</mat-icon>
       </button>
       <mat-menu class="custom-menu" #accountMenu="matMenu">
@@ -93,16 +89,24 @@
     </mat-toolbar>
 
     <div class="main">
+      <mat-toolbar class="custom-toolbar">
+        <span>My App</span>
+        <span class="spacer"></span>
+        <button mat-stroked-button>
+          <mat-icon>add</mat-icon> 
+          New Employee
+        </button>
+        
+      </mat-toolbar>
       <p>main content</p>
     </div>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
 
 
 
 
 
-
-<div class="main-content">
-  <!-- Your main content here -->
-</div>
+<!-- <div class="main-content">
+  <p>main content</p>
+</div> -->

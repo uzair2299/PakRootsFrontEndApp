@@ -57,4 +57,9 @@
     min-width: 250px; /* Set your desired minimum width */
   }
   
+
+  .custom-toolbar {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #cbbdbd; /* Use the desired color for the border, here it's a light black shade */
+  }
     

@@ -13,10 +13,10 @@
     align-items: center;
     justify-content: center;
     background-color: lightgray;
-    background-image: url('src\assets\background\bg-2.jpg'); /* Replace with your image path */
+    background-image: url('src\assets\background\bg-1.jpg'); /* Replace with your image path */
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
   }
   
   .paper {
