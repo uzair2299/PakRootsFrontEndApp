@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -36,6 +37,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {SidebarComponent  } from './components/sidebar/sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RolesComponent } from './components/roles/roles.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     NotFoundComponent,
     ToolbarComponent,
     NavBarComponent,
-    SidebarComponent
+    SidebarComponent,
+    RolesComponent
 
   ],
   imports: [
@@ -70,7 +73,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatTableDataSource
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true

@@ -4,16 +4,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {  RolesComponent} from './components/roles/roles.component';
 
 const routes: Routes = [
   {
     path:'home',
     component:HomeComponent
   },
-  // {
-  //   path:'',
-  //   component:LoginComponent
-  // },
   {
     path:'login',
     component:LoginComponent
@@ -21,10 +18,16 @@ const routes: Routes = [
   {
     path:'forgotPassword',
     component:ForgetPasswordComponent
-  },{
+  },
+  {
     path:'notFound',
     component:NotFoundComponent
+  },
+  {
+    path:'roles',
+    component:RolesComponent
   }
+
  ];
 
 @NgModule({
