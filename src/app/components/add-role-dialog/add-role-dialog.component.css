@@ -1,0 +1,58 @@
+.container {
+    max-width: 600px;
+    background-color: #e6e6e6;
+    padding: 30px;
+    box-shadow: 
+      5px 5px 10px #bfbfbf, 
+      -5px -5px 10px #ffffff;
+  }
+  
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-control:last-child {
+    margin-right: 0;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    transform: translateY(-5px);
+  }
+
+  .cancel-button {
+    background-color: #e6e6e6;
+    box-shadow: 2px 2px 5px #bfbfbf, -2px -2px 5px #ffffff;
+    border-radius: 15px;
+    padding: 8px 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .cancel-button:hover {
+    transform: translateY(-3px);
+  }
+  
+  

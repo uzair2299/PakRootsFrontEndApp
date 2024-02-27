@@ -1,4 +1,12 @@
 .example-spacer {
     flex: 1 1 auto;
   }
-  
+  .edit-btn-icon{
+    color: blue;
+  }
+  .delete-btn-icon{
+    color: red;
+  }
+  .center-align {
+    text-align: center;
+  }

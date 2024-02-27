@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-
+import {MatTableDataSource} from '@angular/material/table';
+import { AddRoleDialogComponent } from 'src/app/components/add-role-dialog/add-role-dialog.component';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -23,11 +32,36 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-roles',
   templateUrl: './roles.component.html',
-  styleUrls: ['./roles.component.css']
+  styleUrls: ['./roles.component.css'],
 })
 
 export class RolesComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
+  constructor(public dialog: MatDialog) {}
+  openEditForm(data: any) {
+    console.log("Selected data for role",data)
+    const dialogRef = this.dialog.open(AddRoleDialogComponent, {
+      disableClose: true, // Prevents closing by clicking outside
+      data: { roleData: data },
+    });
+
+    dialogRef.afterClosed().subscribe(updatedUserData => {
+        console.log('Updated User Data:', updatedUserData);
+        // Here you can update the original data with updatedUserData
+    });
+  }
+  
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddRoleDialogComponent, {
+      data: {},
+        disableClose: true, // Prevents closing by clicking outside
+    });
+
+    dialogRef.afterClosed().subscribe(updatedUserData => {
+        console.log('Updated User Data:', updatedUserData);
+    });
+  }
+    
 }
