@@ -43,7 +43,7 @@
     </button> -->
 
 
-    <mat-nav-list>
+    <mat-nav-list class="custom-nav-list">
       <mat-list-item (click)="toggle('item1')" [class.open]="isOpen === 'item1'">
         <div class="icon-container">
           <h4 mat-line>Item 1</h4>
@@ -52,8 +52,8 @@
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list *ngIf="isOpen === 'item1'">
-        <mat-list-item>
-          <h4 mat-line>Sub Item 1</h4>
+        <mat-list-item [routerLink]="'/roles'" [ngClass]="'cursor-pointer'">
+          <h4 mat-line>Roles</h4>
         </mat-list-item>
         <mat-list-item>
           <h4 mat-line>Sub Item 2</h4>

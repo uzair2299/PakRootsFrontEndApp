@@ -44,3 +44,10 @@
   align-items: center;
   justify-content: space-between;
 }
+.cursor-pointer{
+  cursor:pointer !important;
+}
+
+.custom-nav-list {
+  padding: 0px !important;
+}
