@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <button mat-button routerLink="/home">
+    <!-- <button mat-button routerLink="/home">
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
@@ -40,5 +40,40 @@
     <button mat-button>
       <mat-icon>fiber_manual_record</mat-icon>
       <span>Channel 3</span>
-    </button>
+    </button> -->
+
+
+    <mat-nav-list>
+      <mat-list-item (click)="toggle('item1')" [class.open]="isOpen === 'item1'">
+        <div class="icon-container">
+          <h4 mat-line>Item 1</h4>
+          <mat-icon mat-list-icon>{{ isOpen === 'item1' ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list *ngIf="isOpen === 'item1'">
+        <mat-list-item>
+          <h4 mat-line>Sub Item 1</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <h4 mat-line>Sub Item 2</h4>
+        </mat-list-item>
+      </mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item (click)="toggle('item2')" [class.open]="isOpen === 'item2'">
+        <div class="icon-container">
+          <h4 mat-line>Item 2</h4>
+          <mat-icon mat-list-icon>{{ isOpen === 'item2' ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list *ngIf="isOpen === 'item2'">
+        <mat-list-item>
+          <h4 mat-line>Sub Item 3</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <h4 mat-line>Sub Item 4</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-nav-list>
   </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { AddRoleDialogComponent } from 'src/app/components/add-role-dialog/add-role-dialog.component';
+import {  MatSnackBar,  MatSnackBarHorizontalPosition,  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -11,22 +12,12 @@ import {
   MatDialogClose,
 } from '@angular/material/dialog';
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  roleName: string;
+  id: number;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {id: 1, roleName: 'Hydrogen'},
+  {id: 2, roleName: 'Helium', }
 ];
 
 @Component({
@@ -36,10 +27,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class RolesComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','actions'];
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  displayedColumns: string[] = ['position', 'name','actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+    private _snackBar: MatSnackBar) {}
   openEditForm(data: any) {
     console.log("Selected data for role",data)
     const dialogRef = this.dialog.open(AddRoleDialogComponent, {
@@ -53,6 +47,27 @@ export class RolesComponent {
     });
   }
   
+  // isOpen: boolean = false;
+
+  // toggle() {
+  //   this.isOpen = !this.isOpen;
+  // }
+
+  isOpen: string | null = null;
+
+  toggle(item: string) {
+    this.isOpen = this.isOpen === item ? null : item;
+  }
+  
+  deleteRole(id: number) {
+    console.log("Selected id",id);
+    this._snackBar.open('Delete Successfully', 'Dismiss', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+
+    });
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(AddRoleDialogComponent, {
       data: {},

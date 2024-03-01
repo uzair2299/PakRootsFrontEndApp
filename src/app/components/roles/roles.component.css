@@ -10,3 +10,11 @@
   .center-align {
     text-align: center;
   }
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  

@@ -16,6 +16,8 @@ export class AddRoleDialogComponent {
 
   ngOnInit(): void {
     console.log("Selected item for edit",this.data.roleData) ;
+    this.addEditRoleForm.patchValue(this.data.roleData);
+
   }
 
   submitForm() {

@@ -38,6 +38,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-di
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
