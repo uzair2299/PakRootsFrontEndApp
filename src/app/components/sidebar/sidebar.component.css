@@ -51,3 +51,18 @@
 .custom-nav-list {
   padding: 0px !important;
 }
+
+
+.centered-item {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-margin {
+  margin-right: 8px; /* Adjust this value as needed */
+}

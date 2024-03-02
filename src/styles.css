@@ -59,3 +59,98 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         font-size: 13px;
       }
   
+
+
+
+  /* Padding  */
+
+      .p0 {
+        padding: 0 !important;
+      }
+      
+      .p1 {
+        padding: 4px !important;
+      }
+      
+      .p2 {
+        padding: 8px !important;
+      }
+      
+      .p3 {
+        padding: 12px !important;
+      }
+      
+      .p4 {
+        padding: 16px !important;
+      }
+      
+      .p5 {
+        padding: 20px !important;
+      }
+      
+      .p6 {
+        padding: 24px !important;
+      }
+      
+      .p7 {
+        padding: 28px !important;
+      }
+      
+      .p8 {
+        padding: 32px !important;
+      }
+      
+      .p9 {
+        padding: 36px !important;
+      }
+      
+      .p10 {
+        padding: 40px !important;
+      }
+      
+
+  /* Margin right  */
+      .mr0 {
+        margin-right: 0 !important;
+      }
+      
+      .mr1 {
+        margin-right: 4px !important;
+      }
+      
+      .mr2 {
+        margin-right: 8px !important;
+      }
+      
+      .mr3 {
+        margin-right: 12px !important;
+      }
+      
+      .mr4 {
+        margin-right: 16px !important;
+      }
+      
+      .mr5 {
+        margin-right: 20px !important;
+      }
+      
+      .mr6 {
+        margin-right: 24px !important;
+      }
+      
+      .mr7 {
+        margin-right: 28px !important;
+      }
+      
+      .mr8 {
+        margin-right: 32px !important;
+      }
+      
+      .mr9 {
+        margin-right: 36px !important;
+      }
+      
+      .mr10 {
+        margin-right: 40px !important;
+      }
+      

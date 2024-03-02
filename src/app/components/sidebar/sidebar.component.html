@@ -1,63 +1,53 @@
 <div class="sidebar">
-    <!-- <button mat-button routerLink="/home">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-    </button>
-    <button mat-button routerLink="/roles">
-      <mat-icon>whatshot</mat-icon>
-      <span>Trending</span>
-    </button>
-    <button mat-button>
-      <mat-icon>subscriptions</mat-icon>
-      <span>Subscriptions</span>
-    </button>
-    <button mat-button>
-      <mat-icon>video_library</mat-icon>
-      <span>Library</span>
-    </button>
-    <button mat-button>
-      <mat-icon>history</mat-icon>
-      <span>History</span>
-    </button>
-    <button mat-button>
-      <mat-icon>watch_later</mat-icon>
-      <span>Watch Later</span>
-    </button>
-    <button mat-button>
-      <mat-icon>thumb_up</mat-icon>
-      <span>Liked Videos</span>
-    </button>
-    <hr>
-    <h4>Subscriptions</h4>
-    <button mat-button>
-      <mat-icon>fiber_manual_record</mat-icon>
-      <span>Channel 1</span>
-    </button>
-    <button mat-button>
-      <mat-icon>fiber_manual_record</mat-icon>
-      <span>Channel 2</span>
-    </button>
-    <button mat-button>
-      <mat-icon>fiber_manual_record</mat-icon>
-      <span>Channel 3</span>
-    </button> -->
-
-
     <mat-nav-list class="custom-nav-list">
       <mat-list-item (click)="toggle('item1')" [class.open]="isOpen === 'item1'">
         <div class="icon-container">
-          <h4 mat-line>Item 1</h4>
-          <mat-icon mat-list-icon>{{ isOpen === 'item1' ? 'expand_less' : 'expand_more' }}</mat-icon>
+          <div class="flex-container">
+            <span>People & Permissions</span>
+            <mat-icon mat-list-icon>{{ isOpen === 'item1' ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </div>          
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list *ngIf="isOpen === 'item1'">
-        <mat-list-item [routerLink]="'/roles'" [ngClass]="'cursor-pointer'">
-          <h4 mat-line>Roles</h4>
+      <mat-list *ngIf="isOpen === 'item1'" class="p0">
+        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
+          <div class="flex-container">
+            <mat-icon mat-list-icon class="mr2">group_work</mat-icon>
+            <span>Permissions</span>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
+          <div class="flex-container">
+            <mat-icon mat-list-icon class="mr2">account_tree</mat-icon>
+            <span>Roles</span>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
+          <div class="flex-container">
+            <mat-icon mat-list-icon class="mr2">security</mat-icon>
+            <span>Roles Permission</span>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
+          <div class="flex-container">
+            <mat-icon mat-list-icon class="mr2">people</mat-icon>
+            <span>User Management</span>
+          </div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <h4 mat-line>Roles Permission</h4>
         </mat-list-item>
         <mat-list-item>
-          <h4 mat-line>Sub Item 2</h4>
+          <h4 mat-line>Roles Permission</h4>
         </mat-list-item>
+        <mat-list-item>
+          <h4 mat-line>Roles Permission</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <h4 mat-line>Roles Permission</h4>
+        </mat-list-item>
+
       </mat-list>
       <mat-divider></mat-divider>
       <mat-list-item (click)="toggle('item2')" [class.open]="isOpen === 'item2'">
