@@ -67,7 +67,10 @@ export class AppComponent {
         this.isSidebarOpen = true; // Ensure the sidebar is closed after login
       }
     }
-    
+  }
+  receiveDataFromChild(data: string) {
+    console.log('Data received in parent:', data);
+    // Do something with the received data
   }
 }
 

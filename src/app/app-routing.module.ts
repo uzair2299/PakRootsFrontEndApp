@@ -5,6 +5,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {  RolesComponent} from './components/roles/roles.component';
+import {  PermissionsComponent} from './components/permissions/permissions.component';
+import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
+
+
 
 const routes: Routes = [
   {
@@ -26,8 +30,16 @@ const routes: Routes = [
   {
     path:'roles',
     component:RolesComponent
+  },
+  {
+    path:'permissions',
+    component:PermissionsComponent
+  },
+  {
+    path:'permissions/v1',
+    component:AddPermissionComponent
   }
-
+  
  ];
 
 @NgModule({

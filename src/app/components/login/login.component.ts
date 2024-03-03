@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { AuthService } from '../../services/auth.service';
+import { DataService } from '../../services/DataService';
 
 AuthService
 import { catchError } from 'rxjs/operators';
@@ -34,11 +35,14 @@ export class LoginComponent {
   });
 
   constructor(private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private dataService: DataService) { }
 
   submitForm() {
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
+      const dataToSend = 'Hello from Component A';
+      this.dataService.emitData(dataToSend);
       // this.authService.login(this.loginForm.value)
       //   .subscribe(
       //     {

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { DataService } from '../../services/DataService';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,10 +10,31 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
 
   isOpen: string | null = null;
+  receivedData: any;
+  private subscription: Subscription | undefined;
 
+
+  constructor(private dataService: DataService){}
+  
+  ngOnInit() 
+  {
+    this.subscription = this.dataService.data$.subscribe(data => {
+    this.receivedData = data;
+    console.log("data received",this.receivedData);
+  });
+}
+
+ngOnDestroy() {
+  if (this.subscription) {
+    this.subscription.unsubscribe();
+    console.log("data unsubscribe");
+  }
+}
+  
   toggle(item: string) {
     this.isOpen = this.isOpen === item ? null : item;
   }
 
+  
 }
 
