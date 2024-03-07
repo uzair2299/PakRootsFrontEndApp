@@ -43,23 +43,23 @@ export class LoginComponent {
       console.log(this.loginForm.value);
       const dataToSend = 'Hello from Component A';
       this.dataService.emitData(dataToSend);
-      // this.authService.login(this.loginForm.value)
-      //   .subscribe(
-      //     {
-      //       next: (data: any) => {
-      //         console.log(data);
-      //         // Handle successful login
-      //         this.router.navigate(['/home']);
-      //       },
-      //       error: (error: any) => {
-      //         // Handle error (including ERR_CONNECTION_REFUSED)
-      //         console.error('Login failed:', error);
-      //       },
-      //       complete: () => {
-      //         // Handle completion (if needed)
-      //       }
-      //     })
-      this.router.navigate(['/home']);    
+      this.authService.login(this.loginForm.value)
+        .subscribe(
+          {
+            next: (data: any) => {
+              console.log(data);
+              // Handle successful login
+              this.router.navigate(['/home']);
+            },
+            error: (error: any) => {
+              // Handle error (including ERR_CONNECTION_REFUSED)
+              console.error('Login failed:', error);
+            },
+            complete: () => {
+              // Handle completion (if needed)
+            }
+          })
+      //this.router.navigate(['/home']);    
     }
         
     else{

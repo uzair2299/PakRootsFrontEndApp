@@ -5,12 +5,13 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private router :Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log("going to intercept in the http request")
@@ -20,10 +21,12 @@ export class JwtInterceptor implements HttpInterceptor {
 
     // Get the JWT token from wherever you have stored it
     const token = localStorage.getItem('jwtToken');
-
+console.log("token",token)
     // Add the token to the request headers
     //In JavaScript, null, undefined, 0, an empty string, and false are considered falsy values.
     if (token) {
+      console.log("Token exists, adding to headers");
+
 
       //request.clone() creates a clone of the original request object. It is commonly used in interceptors to modify the request before it is sent.
 
@@ -44,8 +47,24 @@ export class JwtInterceptor implements HttpInterceptor {
           Authorization: `Bearer ${token}`
         }
       });
-    }
+      return next.handle(request);
+    }else{
+      console.error("Token does not exist, not making the HTTP call");
 
-    return next.handle(request);
+      const isLoginApi =  this.isLoginApi(request.url);
+      this.router.navigate(['/login']);
+      if (!isLoginApi) {
+        this.router.navigate(['/login']);
+        // Return an empty observable of HttpEvent<unknown>
+        return of() as Observable<HttpEvent<unknown>>;
+      }
+      return next.handle(request);
+
+    }
+  }
+   // Function to check if the request URL is the login API
+   private isLoginApi(url: string): boolean {
+    console.info("request route",url)
+    return url.includes('/api/v1/login'); // Adjust this URL check as per your API
   }
 }

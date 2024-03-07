@@ -4,17 +4,17 @@
       <button mat-stroked-button [routerLink]="'/permissions'">Back to Permission</button>
     </mat-toolbar>
     <div class="neumorphic-form">
-        <form class="example-form">
+        <form class="example-form" [formGroup]="permissionFrom" (ngSubmit)="submitForm()">
             <h1 class="form-heading">Add Permission</h1>
           <mat-form-field class="input-group">
             <mat-label>Permission</mat-label>
-            <input matInput placeholder="Enter your username" required>
+            <input matInput placeholder="Enter your username" name="permissionName" formControlName="permissionName">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Description</mat-label>
-            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            <textarea matInput name="description" formControlName="description"></textarea>
           </mat-form-field>
-          <button mat-raised-button color="primary" class="btn-block">Add</button>
+          <button mat-raised-button color="primary" class="btn-block" type="submit">Add</button>
         </form>
       </div>
       

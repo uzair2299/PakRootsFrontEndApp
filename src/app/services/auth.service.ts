@@ -33,7 +33,7 @@ export class AuthService {
           if (expirationTimeInSeconds && expirationTimeInSeconds >= currentTimeInSeconds) {
             // Token is not expired
             console.log('Token is valid. Expiration time:', new Date(expirationTimeInSeconds * 1000));
-            localStorage.setItem('token', response.token); // Store the JWT token in local storage
+            localStorage.setItem('jwtToken', response.token); // Store the JWT token in local storage
             this.isAuthenticatedSubject.next(true);
           } else {
             // Token has expired
