@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {  RolesComponent} from './components/roles/roles.component';
 import {  PermissionsComponent} from './components/permissions/permissions.component';
 import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
+import {  MenuComponent} from './components/menu/menu.component';
 
 
 
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path:'permissions',
     component:PermissionsComponent
+  },
+  {
+    path:'menu',
+    component:MenuComponent
   },
   {
     path:'permissions/v1',

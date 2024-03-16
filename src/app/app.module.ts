@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -43,6 +44,7 @@ import { DataService } from './services/DataService';
 import { PermissionsComponent } from './components/permissions/permissions.component';
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
 import { AddPermissionComponent } from './components/add-permission/add-permission.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { AddPermissionComponent } from './components/add-permission/add-permissi
     AddRoleDialogComponent,
     PermissionsComponent,
     AddPermissionDialogComponent,
-    AddPermissionComponent
+    AddPermissionComponent,
+    MenuComponent
 
   ],
   imports: [
@@ -84,7 +87,8 @@ import { AddPermissionComponent } from './components/add-permission/add-permissi
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTreeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
