@@ -1,3 +1,40 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+
+  /* Styles for mat-card */
+.example-card {
+    margin: 10px; /* Add margin between cards */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow */
+  }
+  
+  .example-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  
+  /* Styles for mat-card-header */
+  mat-card-header {
+    background-color: #f0f0f0; /* Light background color */
+    border-bottom: 1px solid #e0e0e0; /* Add subtle border */
+  }
+  
+  mat-card-subtitle {
+    color: #333; /* Darken text color */
+    padding: 5px;
+  }
+  
+  /* Styles for mat-card-content */
+  mat-card-content {
+    padding: 10px; /* Add padding inside the content */
+  }
+  
+  /* Styles for paragraph inside mat-card-content */
+  mat-card-content p {
+    font-size: 14px; /* Adjust font size */
+    line-height: 1.5; /* Increase line height for better readability */
+    color: #666; /* Medium-dark text color */
+  }
+  
