@@ -8,6 +8,7 @@ import {  RolesComponent} from './components/roles/roles.component';
 import {  PermissionsComponent} from './components/permissions/permissions.component';
 import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
 import {  MenuComponent} from './components/menu/menu.component';
+import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
 
 
 
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path:'menu',
     component:MenuComponent
+  },
+  
+  {
+    path:'permissions/v1/details/:id',
+    component:ViewPermissionComponent
   },
   {
     path:'permissions/v1',

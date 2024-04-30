@@ -38,6 +38,16 @@ export class HttpService {
     return this.http.get<T>(url, options);
   }
 
+   // Function for making DELETE requests
+   delete<T>(url: string, options?: {
+    headers?: HttpHeaders | { [header: string]: string | string[] };
+    params?: HttpParams | { [param: string]: string | string[] };
+    responseType?: 'json';
+    withCredentials?: boolean;
+  }): Observable<T> {
+    return this.http.delete<T>(url, options);
+  }
+
 
   // Function for making other HTTP requests
   request<T>(method: string, url: string, options?: {

@@ -45,7 +45,8 @@ import { PermissionsComponent } from './components/permissions/permissions.compo
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
 import { AddPermissionComponent } from './components/add-permission/add-permission.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,9 @@ import { MenuComponent } from './components/menu/menu.component';
     PermissionsComponent,
     AddPermissionDialogComponent,
     AddPermissionComponent,
-    MenuComponent
+    MenuComponent,
+    DeleteConfirmationDialogComponent,
+    ViewPermissionComponent
 
   ],
   imports: [

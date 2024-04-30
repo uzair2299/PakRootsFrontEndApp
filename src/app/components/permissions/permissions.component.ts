@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { AddPermissionDialogComponent } from 'src/app/components/add-permission-dialog/add-permission-dialog.component';
+import { DeleteConfirmationDialogComponent } from 'src/app/components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import {  MatSnackBar,  MatSnackBarHorizontalPosition,  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+
+
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -81,6 +84,7 @@ getPermissionV1() {
     next: response => {
       this.permissions = response;
       this.dataSource.data = this.permissions;
+      console.log('Response:', response);
       console.log('POST request successful:', this.permissions);
     },
     error: error => {
@@ -90,7 +94,52 @@ getPermissionV1() {
 }
 deleteRole(id: number) {
   console.log("Selected id",id);
+  const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+    width: '250px',
+    data: { title: 'Delete Confirmation', message: 'Are you sure you want to delete this item?' }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      
+    console.log("Confirmation result",result)
+if(result){
+  this.httpService.delete<any>(`${API_ENDPOINTS.permissionV1}/${id}`).pipe(
+    catchError(error => {
+      console.error('Error in Delete request:', error);
+      // Handle the error here or re-throw it to propagate
+      // return throwError(error); // Uncomment this line if you want to propagate the error
+      return throwError(() => error); // Or return a new observable with the error
+    })
+  )
+  .subscribe({
+    next: response => {
+      console.log('Delete request successful:');
+      if (response && response.status === 200) {
+        console.log('Delete request successful 1 :', response.status);
+       
+      }
+      this.onDeleteSucess();
+    },
+    error: error => {
+      console.error('Error in Delete request:', error);
+    }
+  });
+}
+    // User clicked Yes, proceed with deletion
+      // Call your delete method here
+      //this.deleteItem();
+    }
+  });
+
+
+
+}
+
+
+onDeleteSucess():void{
   this._snackBar.open('Delete Successfully', 'Dismiss', {
+    duration: 3000, // Duration in milliseconds (e.g., 3000 milliseconds = 3 seconds)
     horizontalPosition: this.horizontalPosition,
     verticalPosition: this.verticalPosition,
 
