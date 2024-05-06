@@ -95,7 +95,7 @@ import { PermissionsRoutingModule } from './components/permissions/permissions-r
     MatListModule,
     MatSnackBarModule,
     MatTreeModule,
-    PermissionsRoutingModule,
+PermissionsRoutingModule,
     PermissionsModule // Add UserModule to imports
   ],
   providers: [{

@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ViewPermissionComponent } from './view-permission/view-permission.component';
 
-const routes  = [
-   // Add more routes as needed
-  {path : 'permissionsV' ,component : ViewPermissionComponent}
+const routes = [
+  // Add more routes as needed
+  { path: 'permissions', component: ViewPermissionComponent }
 ]
 
 @NgModule({
