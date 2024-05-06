@@ -9,6 +9,7 @@ import {  PermissionsComponent} from './components/permissions/permissions.compo
 import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
 import {  MenuComponent} from './components/menu/menu.component';
 import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
+import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
 
 
 

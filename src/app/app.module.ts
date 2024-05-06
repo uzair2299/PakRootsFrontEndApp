@@ -48,6 +48,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
 
+import { PermissionsModule } from './components/permissions/permissions.module'; // Import PermissionModule
+import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +94,9 @@ import { ViewPermissionComponent } from './components/view-permission/view-permi
     MatMenuModule,
     MatListModule,
     MatSnackBarModule,
-    MatTreeModule
+    MatTreeModule,
+    PermissionsRoutingModule,
+    PermissionsModule // Add UserModule to imports
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
