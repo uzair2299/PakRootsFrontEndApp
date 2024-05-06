@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpService } from '../../services/http.service';
 import { Router } from '@angular/router';
 import { Observable,throwError } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'app-add-permission',
   templateUrl: './add-permission.component.html',

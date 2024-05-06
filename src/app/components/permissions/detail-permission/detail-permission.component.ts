@@ -5,15 +5,11 @@ import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
-  selector: 'app-view-permission',
-  templateUrl: './view-permission.component.html',
-  styleUrls: ['./view-permission.component.css']
+  selector: 'app-detail-permission',
+  templateUrl: './detail-permission.component.html',
+  styleUrls: ['./detail-permission.component.css']
 })
-
-
-
-export class ViewPermissionComponent {
-
+export class DetailPermissionComponent {
   responseData: any;
 itemId?:string;
   constructor(private httpService: HttpService,private route:ActivatedRoute) {}
@@ -48,4 +44,3 @@ itemId?:string;
     });
   }
 }
-

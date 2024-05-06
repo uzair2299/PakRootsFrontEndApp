@@ -24,12 +24,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import {MatTreeModule} from '@angular/material/tree';
+import { AddPermissionComponent } from './add-permission/add-permission.component';
+import { DetailPermissionComponent } from './detail-permission/detail-permission.component';
 
 
 
 @NgModule({
   declarations: [
-    ViewPermissionComponent
+    ViewPermissionComponent,
+    AddPermissionComponent,
+    DetailPermissionComponent
   ],
   imports: [
     CommonModule,

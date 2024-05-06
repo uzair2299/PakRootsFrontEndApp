@@ -42,10 +42,8 @@ import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-di
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DataService } from './services/DataService';
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
-import { AddPermissionComponent } from './components/add-permission/add-permission.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
-import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
 
 import { PermissionsModule } from './components/permissions/permissions.module'; // Import PermissionModule
 import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
@@ -63,10 +61,8 @@ import { PermissionsRoutingModule } from './components/permissions/permissions-r
     RolesComponent,
     AddRoleDialogComponent,
     AddPermissionDialogComponent,
-    AddPermissionComponent,
     MenuComponent,
     DeleteConfirmationDialogComponent,
-    ViewPermissionComponent
 
   ],
   imports: [

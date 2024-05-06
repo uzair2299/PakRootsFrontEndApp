@@ -5,10 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {  RolesComponent} from './components/roles/roles.component';
-import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
 import {  MenuComponent} from './components/menu/menu.component';
-import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
-
 
 
 const routes: Routes = [
@@ -37,14 +34,6 @@ const routes: Routes = [
     component:MenuComponent
   },
   
-  {
-    path:'permissions/v1/details/:id',
-    component:ViewPermissionComponent
-  },
-  {
-    path:'permissions/v1',
-    component:AddPermissionComponent
-  }
   
  ];
 
