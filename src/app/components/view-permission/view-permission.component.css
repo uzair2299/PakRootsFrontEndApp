@@ -28,7 +28,7 @@
   
   /* Styles for mat-card-content */
   mat-card-content {
-    padding: 10px; /* Add padding inside the content */
+    padding: 20px; /* Add padding inside the content */
   }
   
   /* Styles for paragraph inside mat-card-content */

@@ -9,8 +9,12 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './view-permission.component.html',
   styleUrls: ['./view-permission.component.css']
 })
+
+
+
 export class ViewPermissionComponent {
 
+  responseData: any;
 itemId?:string;
   constructor(private httpService: HttpService,private route:ActivatedRoute) {}
 
@@ -35,6 +39,7 @@ itemId?:string;
     .subscribe({
       next: response => {
         console.log('Response:', response);
+        this.responseData = response;
         //console.log('POST request successful:', this.permissions);
       },
       error: error => {

@@ -1,34 +1,59 @@
 <mat-toolbar>
     <span>Permission details</span>
-      <span class="example-spacer"></span>
-      <button mat-stroked-button [routerLink]="'/permissions'">Back to Permission</button>
-    </mat-toolbar>
-    <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-subtitle>Permission Type</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>This card indeterminates progress bar.</p>
-        </mat-card-content>
-      </mat-card>
-    
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-subtitle>Module</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>Users</p>
-        </mat-card-content>
-      </mat-card>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button [routerLink]="'/permissions'">Back to Permission</button>
+</mat-toolbar>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Permission Type</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{ responseData?.permissionName }}
+    </mat-card-content>
+</mat-card>
 
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-subtitle>Description</mat-card-subtitle>
-        </mat-card-header>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Permission Code</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{ responseData?.code }}
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Module</mat-card-subtitle>
+    </mat-card-header>
+    <ng-container *ngIf="responseData?.module; else nullModule">
         <mat-card-content>
-          <p>This approach is neater because it clearly separates the route path and the route parameters, making the code more readable. It also avoids string concatenation, which can be error-prone and harder to maintain.
-          </p>
+            {{ responseData.module }}
         </mat-card-content>
-      </mat-card>
-      
-      
+    </ng-container>
+    <ng-template #nullModule>
+        <mat-card-content>
+            --
+        </mat-card-content>
+    </ng-template>
+</mat-card>
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Created Date</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{ responseData?.createdAt }}
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-subtitle>Description</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ responseData?.description }}
+        </p>
+    </mat-card-content>
+</mat-card>

@@ -92,7 +92,7 @@ getPermissionV1() {
     }
   });
 }
-deleteRole(id: number) {
+deletePermissionV1(id: number) {
   console.log("Selected id",id);
   const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
     width: '250px',
@@ -115,11 +115,9 @@ if(result){
   .subscribe({
     next: response => {
       console.log('Delete request successful:');
-      if (response && response.status === 200) {
-        console.log('Delete request successful 1 :', response.status);
-       
-      }
+      this.getPermissionV1();
       this.onDeleteSucess();
+    
     },
     error: error => {
       console.error('Error in Delete request:', error);

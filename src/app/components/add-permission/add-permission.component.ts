@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { Observable,throwError } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-permission',
   templateUrl: './add-permission.component.html',
   styleUrls: ['./add-permission.component.css']
 })
 export class AddPermissionComponent {
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService, private _snackBar: MatSnackBar,){}
   permissionFrom = new FormGroup({
     permissionName : new FormControl('',Validators.required),
     description : new FormControl('')
@@ -31,6 +32,8 @@ export class AddPermissionComponent {
       .subscribe({
         next: response => {
           console.log('POST request successful:', response);
+          this.permissionFrom.reset() // Reset the form after successful API call
+          this.openSnackBar('Successfully added...!'); // Show snackbar
         },
         error: error => {
           console.error('Error in POST request:', error);
@@ -40,5 +43,13 @@ export class AddPermissionComponent {
     else{
       console.error("Invalid form check user input",this.permissionFrom.value);
     }
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 2000, // Duration in milliseconds
+      horizontalPosition: 'end', // Positioning the snackbar horizontally
+      verticalPosition: 'top', // Positioning the snackbar vertically
+    });
   }
 }
