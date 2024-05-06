@@ -41,7 +41,6 @@ import { RolesComponent } from './components/roles/roles.component';
 import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DataService } from './services/DataService';
-import { PermissionsComponent } from './components/permissions/permissions.component';
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
 import { AddPermissionComponent } from './components/add-permission/add-permission.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -63,7 +62,6 @@ import { PermissionsRoutingModule } from './components/permissions/permissions-r
     SidebarComponent,
     RolesComponent,
     AddRoleDialogComponent,
-    PermissionsComponent,
     AddPermissionDialogComponent,
     AddPermissionComponent,
     MenuComponent,

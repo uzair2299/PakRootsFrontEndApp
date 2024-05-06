@@ -5,11 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {  RolesComponent} from './components/roles/roles.component';
-import {  PermissionsComponent} from './components/permissions/permissions.component';
 import {  AddPermissionComponent} from './components/add-permission/add-permission.component';
 import {  MenuComponent} from './components/menu/menu.component';
 import { ViewPermissionComponent } from './components/view-permission/view-permission.component';
-import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
 
 
 
@@ -33,10 +31,6 @@ const routes: Routes = [
   {
     path:'roles',
     component:RolesComponent
-  },
-  {
-    path:'permissions',
-    component:PermissionsComponent
   },
   {
     path:'menu',
