@@ -22,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -34,7 +34,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {SidebarComponent  } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RolesComponent } from './components/roles/roles.component';
@@ -46,7 +46,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 import { PermissionsModule } from './components/permissions/permissions.module'; // Import PermissionModule
+import { AppModoluesModule } from './components/app-modolues/app-modolues.module';
+
 import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
+import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -89,12 +93,15 @@ import { PermissionsRoutingModule } from './components/permissions/permissions-r
     MatListModule,
     MatSnackBarModule,
     MatTreeModule,
-PermissionsRoutingModule,
-    PermissionsModule // Add UserModule to imports
+    AppModoluesRoutingModule,
+    PermissionsRoutingModule,
+    PermissionsModule, // Add Permission to imports
+    AppModoluesModule
+
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor,multi: true
-  },DataService],
+    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+  }, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
