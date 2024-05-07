@@ -52,7 +52,7 @@ export class AppComponent {
 
   checkActiveRoute() {
     console.log("route url",this.router.url)
-    const isLoginRoute = this.router.url.includes('/login');
+    const isLoginRoute = this.router.url.includes('/login') || this.router.url.includes('/forgotPassword');
     console.log("Login state",isLoginRoute);
     this.showTopBar = !isLoginRoute;
     console.log("showTopBar state",this.showTopBar);
