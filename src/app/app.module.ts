@@ -50,6 +50,7 @@ import { AppModoluesModule } from './components/app-modolues/app-modolues.module
 
 import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
 import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues-routing.module';
+import { ResponseInterceptorService } from './interceptor/response/response-interceptor.service';
 
 
 @NgModule({
@@ -99,9 +100,10 @@ import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues
     AppModoluesModule
 
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
-  }, DataService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptorService, multi: true },
+    DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
