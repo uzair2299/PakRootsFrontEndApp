@@ -30,7 +30,7 @@ export class LoginComponent {
 //At least one digit
 
   loginForm = new FormGroup({
-    userName : new FormControl('testing',Validators.required),
+    userName : new FormControl('john_doe',Validators.required),
     password : new FormControl('asdfghA1',[Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)]),
   });
 

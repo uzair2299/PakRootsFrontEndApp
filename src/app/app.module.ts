@@ -41,6 +41,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DataService } from './services/DataService';
+import { WebSocketService } from './services/WebSocketService';
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
@@ -51,6 +52,7 @@ import { AppModoluesModule } from './components/app-modolues/app-modolues.module
 import { PermissionsRoutingModule } from './components/permissions/permissions-routing.module';
 import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues-routing.module';
 import { ResponseInterceptorService } from './interceptor/response/response-interceptor.service';
+import { MyChatComponent } from './components/my-chat/my-chat.component';
 
 
 @NgModule({
@@ -68,6 +70,7 @@ import { ResponseInterceptorService } from './interceptor/response/response-inte
     AddPermissionDialogComponent,
     MenuComponent,
     DeleteConfirmationDialogComponent,
+    MyChatComponent,
 
   ],
   imports: [
@@ -103,7 +106,7 @@ import { ResponseInterceptorService } from './interceptor/response/response-inte
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptorService, multi: true },
-    DataService],
+    DataService,WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

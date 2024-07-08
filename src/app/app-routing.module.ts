@@ -6,6 +6,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {  RolesComponent} from './components/roles/roles.component';
 import {  MenuComponent} from './components/menu/menu.component';
+import { MyChatComponent } from './components/my-chat/my-chat.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,9 @@ const routes: Routes = [
   {
     path:'menu',
     component:MenuComponent
+  },{
+    path:'chat',
+    component:MyChatComponent
   },
   
   
