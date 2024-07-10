@@ -1,57 +1,76 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { Client, Message, StompSubscription } from '@stomp/stompjs';
+import * as SockJS from 'sockjs-client';
+import { filter, first, switchMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Subject } from 'rxjs';
+import { ChatMessage } from '../components/my-chat/my-chat.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebSocketService {
-  private socket!: WebSocket; // Add `!` to assert that `socket` will be initialized
-  private url = 'ws://localhost:8081/hello'; // Your WebSocket URL
-  public message$: Subject<string> = new Subject<string>();
-
-
+  private stompClient!: Client;
+  private messageSubject_: Subject<string> = new Subject<string>();
+   
+  private url_ = 'ws://localhost:8081/ws';  
   constructor() {
-    this.connect();
+      this.connect1();  // Automatically connect when the service is instantiated
+    }
+  
+  
+// Automatically connect when the service is instantiated
+  
+
+ connect1() {
+    const token = `Bearer ${localStorage.getItem('jwtToken')}`;  // Get token from local storage
+    const wsUrl = token ? `${this.url_}?token=${encodeURIComponent(token)}` : this.url_;  // Append token to URL if available
+
+    this.stompClient = new Client({
+      brokerURL: wsUrl,  // WebSocket URL
+      connectHeaders: {},  // No additional headers required here
+      debug: (str) => {
+        console.log(str);  // Log debug information from STOMP client
+      },
+      onConnect: (frame) => {
+        console.log('Connected: ' + frame);
+        this.stompClient.subscribe('/topic/greetings', (message: Message) => {
+          if (message.body) {
+            console.log("message body uzair",message.body)
+            const receivedMessage = JSON.parse(message.body) as ChatMessage;
+            this.messageSubject_.next(message.body);  // Emit the message body
+          }
+        });
+      },
+      onStompError: (frame) => {
+        console.error('Broker reported error: ', frame.headers.message);
+        console.error('Additional details: ', frame.body);
+      },
+      onWebSocketClose: () => {
+        console.log('WebSocket closed');
+      },
+      onWebSocketError: (error) => {
+        console.error('WebSocket error: ', error);
+      }
+    });
+
+    this.stompClient.activate();  // Activate the STOMP client connection
   }
 
-
-
-  private connect() {
-
-    // Get the JWT token from wherever you have stored it
-    const token = `Bearer ${localStorage.getItem('jwtToken')}`;
-    const wsUrl = token ? `${this.url}?token=${encodeURIComponent(token)}` : this.url;
-
-    console.log("web socket url",wsUrl)
-    this.socket = new WebSocket(wsUrl);
-
-    this.socket.onopen = () => {
-      console.log('WebSocket connection established');
-    };
-
-    this.socket.onmessage = (event) => {
-      console.log('Message received:', event.data);
-      this.message$.next(event.data);
-    };
-
-    this.socket.onclose = () => {
-      console.log('WebSocket connection closed');
-    };
-
-    this.socket.onerror = (error) => {
-      console.error('WebSocket error:', error);
-    };
-  }
-
-
-  public sendMessage(message: string) {
-    console.log("socket state",this.socket.readyState)
-    if (this.socket.readyState === WebSocket.OPEN) {
-      this.socket.send(JSON.stringify({ message }));
+  sendMessage_(message: ChatMessage) {
+    if (this.stompClient.connected) {  // Check if the client is connected
+      this.stompClient.publish({
+        destination: '/app/hello',
+        body: JSON.stringify(message)
+      });
     } else {
-      console.warn('WebSocket is not open. Message not sent.');
+      console.error('Cannot send message. WebSocket client is not connected.');
     }
   }
 
+  getMessages_(): Observable<string> {
+    return this.messageSubject_.asObservable();  // Return the observable for message subscription
+  }
 
 }

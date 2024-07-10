@@ -1,9 +1,62 @@
 <!-- src/app/chat/chat.component.html -->
 <div class="chat-container">
     <div class="messages">
-      <div *ngFor="let msg of messages" class="message">
+      <main class="msger-chat">
+        <!-- Display messages from the current user -->
+        <div *ngFor="let message of messagesArray" class="msg" [ngClass]="{'left-msg': message.userName === userName, 'right-msg': message.userName !== userName}">
+          <div class="msg-img"[ngStyle]="{'background-image': message.userName === userName ? 'url(https://image.flaticon.com/icons/svg/327/327779.svg)' : 'url(https://image.flaticon.com/icons/svg/145/145867.svg)'}"></div>
+      
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">{{ message.userName }}</div>
+              <div class="msg-info-time">12:45</div>
+            </div>
+      
+            <div class="msg-text">
+              {{ message.content }}
+            </div>
+          </div>
+        </div>
+      </main>
+      
+      <!-- <main class="msger-chat">
+        <div class="msg left-msg">
+          <div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div>
+    
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">BOT</div>
+              <div class="msg-info-time">12:45</div>
+            </div>
+    
+            <div class="msg-text">
+              Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+            </div>
+          </div>
+        </div>
+    
+        <div class="msg right-msg">
+          <div
+           class="msg-img"
+           style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+          ></div>
+    
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">Sajad</div>
+              <div class="msg-info-time">12:46</div>
+            </div>
+    
+            <div class="msg-text">
+              You can change your name in JS section!
+            </div>
+          </div>
+        </div>
+      </main> -->
+
+      <!-- <div *ngFor="let msg of messages" class="message">
         {{ msg }}
-      </div>
+      </div> -->
     </div>
     <div class="input-wrapper">
         <input [(ngModel)]="message" (keyup.enter)="send()" placeholder="Type a message..." />
