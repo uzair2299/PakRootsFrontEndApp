@@ -27,7 +27,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { AddPermissionComponent } from './add-permission/add-permission.component';
 import { DetailPermissionComponent } from './detail-permission/detail-permission.component';
 
-
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { DetailPermissionComponent } from './detail-permission/detail-permission
     MatMenuModule,
     MatListModule,
     MatTreeModule,
+    MatTabsModule
   ]
 })
 export class PermissionsModule { }

@@ -4,7 +4,7 @@ export const API_VERSIONS = {
     v2: 'v2',
   };
   export const API_ENDPOINTS = {
-    permissionV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/permission`,
+    permissionV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/permission/getAllActive`,
     permissionV2: `/api/${API_VERSIONS.v2}/permission`,
     // Add more endpoints as needed
   };

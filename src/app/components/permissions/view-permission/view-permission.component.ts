@@ -4,7 +4,7 @@ import { AddPermissionDialogComponent } from 'src/app/components/add-permission-
 import { DeleteConfirmationDialogComponent } from 'src/app/components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import {  MatSnackBar,  MatSnackBarHorizontalPosition,  MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 
-
+import {MatTabsModule} from '@angular/material/tabs';
 import {
   MatDialog,
   MAT_DIALOG_DATA,

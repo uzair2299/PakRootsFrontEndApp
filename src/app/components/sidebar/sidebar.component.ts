@@ -12,7 +12,7 @@ export class SidebarComponent {
   isOpen: string | null = null;
   receivedData: any;
   private subscription: Subscription | undefined;
-
+  menu: any[] = [];
 
   constructor(private dataService: DataService){}
   
@@ -21,6 +21,11 @@ export class SidebarComponent {
     this.subscription = this.dataService.data$.subscribe(data => {
     this.receivedData = data;
     console.log("data received",this.receivedData);
+  });
+
+  this.dataService.menu$.subscribe(menuData => {
+    this.menu = menuData;
+    console.log(menuData)
   });
 }
 

@@ -48,6 +48,7 @@ export class LoginComponent {
           {
             next: (data: any) => {
               console.log(data);
+              this.dataService.setMenuData(data.menuList)
               // Handle successful login
               this.router.navigate(['/home']);
             },

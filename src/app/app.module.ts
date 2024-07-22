@@ -53,7 +53,7 @@ import { PermissionsRoutingModule } from './components/permissions/permissions-r
 import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues-routing.module';
 import { ResponseInterceptorService } from './interceptor/response/response-interceptor.service';
 import { MyChatComponent } from './components/my-chat/my-chat.component';
-
+import { MatTabsModule } from '@angular/material/tabs'; // Import MatTabsModule
 
 @NgModule({
   declarations: [
@@ -95,6 +95,7 @@ import { MyChatComponent } from './components/my-chat/my-chat.component';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
+    MatTabsModule,
     MatSnackBarModule,
     MatTreeModule,
     AppModoluesRoutingModule,
