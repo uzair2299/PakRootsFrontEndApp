@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span>Assign Resource permissions</span>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button [routerLink]="'/resources'">Back to Resources</button>
+</mat-toolbar>
+
+<section class="example-section">
+    <p><strong>Description:</strong> {{ responseData?.description }}</p>
+    <p><strong>Owner:</strong> {{ responseData?.owner }}</p>
+    <p><strong>Method Type:</strong> {{ responseData?.methodType }}</p>
+    <p><strong>Endpoint:</strong> {{ responseData?.resourceEndpoint }}</p>
+    <p><strong>Rate Limit:</strong> {{ responseData?.rateLimit }}</p>
+    <p><strong>Documentation:</strong> <a [href]="responseData?.documentationUrl" target="_blank">{{
+            responseData?.documentationUrl }}</a></p>
+    <!-- Separate "Assign All" checkbox -->
+    <div class="assign-all-section">
+        <mat-checkbox class="assign-all-checkbox" [checked]="task().completed" [indeterminate]="partiallyComplete()"
+            (change)="update($event.checked)">
+            {{ task().name }}
+        </mat-checkbox>
+    </div>
+    <!-- Container for other checkboxes -->
+    <div class="example-list-section">
+        <div class="checkbox-container">
+            <div *ngFor="let subtask of task().subtasks; let i = index" class="checkbox-item">
+                <mat-checkbox [checked]="subtask.completed" (change)="update($event.checked, i)">
+                    {{ subtask.name }}
+                </mat-checkbox>
+            </div>
+        </div>
+    </div>
+
+    <div class="update-button-section">
+        <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+    </div>
+</section>

@@ -1,112 +1,234 @@
-<!-- <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidebar mode="side" opened>
-    <div class="sidebar">
-      <button mat-button>
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button>
-      <button mat-button>
-        <mat-icon>whatshot</mat-icon>
-        <span>Trending</span>
-      </button>
-      <button mat-button>
-        <mat-icon>subscriptions</mat-icon>
-        <span>Subscriptions</span>
-      </button>
-      <button mat-button>
-        <mat-icon>video_library</mat-icon>
-        <span>Library</span>
-      </button>
-      <button mat-button>
-        <mat-icon>history</mat-icon>
-        <span>History</span>
-      </button>
-      <button mat-button>
-        <mat-icon>watch_later</mat-icon>
-        <span>Watch Later</span>
-      </button>
-      <button mat-button>
-        <mat-icon>thumb_up</mat-icon>
-        <span>Liked Videos</span>
-      </button>
-      <hr>
-      <h4>Subscriptions</h4>
-      <button mat-button>
-        <mat-icon>fiber_manual_record</mat-icon>
-        <span>Channel 1</span>
-      </button>
-      <button mat-button>
-        <mat-icon>fiber_manual_record</mat-icon>
-        <span>Channel 2</span>
-      </button>
-      <button mat-button>
-        <mat-icon>fiber_manual_record</mat-icon>
-        <span>Channel 3</span>
-      </button>
+<div class="">
+  <main class="main">
+    <div class="main-header">
+      <div class="main-header__intro-wrapper">
+        <div class="main-header__welcome">
+          <div class="main-header__welcome-title text-light">Welcome, <strong>Matthew</strong></div>
+          <div class="main-header__welcome-subtitle text-light">{{ currentDate | date:'fullDate' }}</div>
+        </div>
+        <!-- <div class="quickview">
+          <div class="quickview__item">
+            <div class="quickview__item-total">41</div>
+            <div class="quickview__item-description">
+              <i class="far fa-calendar-alt"></i>
+              <span class="text-light">Events</span>
+            </div>
+          </div>
+          <div class="quickview__item">
+            <div class="quickview__item-total">64</div>
+            <div class="quickview__item-description">
+              <i class="far fa-comment"></i>
+              <span class="text-light">Messages</span>
+            </div>
+          </div>
+          <div class="quickview__item">
+            <div class="quickview__item-total">27&deg;</div>
+            <div class="quickview__item-description">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="text-light">Austin</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidebar.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>YouTube</span>
-      <span class="spacer"></span>
-      <button mat-icon-button>
-        <mat-icon>videocam</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon>apps</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon>notifications</mat-icon>
-      </button>
-         <button mat-icon-button [matMenuTriggerFor]="accountMenu">
-        <mat-icon class="colorful-icon">account_circle</mat-icon>
-      </button>
-      <mat-menu class="custom-menu" #accountMenu="matMenu">
-        <button mat-menu-item class="custom-menu-item">
-          <mat-icon>account_circle</mat-icon>
-          <span>My Channel</span>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <mat-icon>video_library</mat-icon>
-          <span>My Videos</span>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <mat-icon>history</mat-icon>
-          <span>History</span>
-        </button>
-        <button mat-menu-item class="custom-menu-item">
-          <mat-icon>settings</mat-icon>
-          <span>Settings</span>
-        </button>
-        <button mat-menu-item class="custom-menu-item" (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Sign Out</span>
-        </button>
-      </mat-menu>
-    </mat-toolbar>
-
-    <div class="main">
-      <mat-toolbar class="custom-toolbar">
-        <span>My App</span>
-        <span class="spacer"></span>
-        <button mat-stroked-button>
-          <mat-icon>add</mat-icon> 
-          New Employee
-        </button>
-        
-      </mat-toolbar>
-      <p>main content</p>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
+  </main>
+</div>
 
 
-<h1>home works</h1>
 
 
-<!-- <div class="main-content">
-  <p>main content</p>
-</div> -->
+  <div class="flexbox-container">
+
+      <!-- HOME -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="home-card-color">
+              <div class="image-container" id="home-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Home</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Return to the OCC Extranet home screen</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- DOCUMENT RESOURCES -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="document-resources-card-color">
+              <div class="image-container" id="document-resources-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Document Resources</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Search &amp; download all available documents</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- DROP-OFF LOCATION MANAGEMENT -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="drop-off-location-management-card-color">
+              <div class="image-container" id="drop-off-location-management-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Drop-off Location Management</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Access all materials for your drop-off location</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- LEADER INBOX -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="leader-inbox-card-color">
+              <div class="image-container" id="leader-inbox-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Leader Inbox</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">View and respond to your notices</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- MY PROFILE SETTINGS -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="my-profile-settings-card-color">
+              <div class="image-container" id="my-profile-settings-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">My Profile Settings</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Reset your password and configure your settings</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- NATIONAL PARTNERSHIP RESOURCES -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="national-partnership-resources-card-color">
+              <div class="image-container" id="national-partnership-resources-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">National Partnership Resources</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">View &amp; download national partnership materials</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- RECOMMITMENT DASHBOARD -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="recommitment-dashboard-card-color">
+              <div class="image-container" id="recommitment-dashboard-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Recommitment Dashboard</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Manage volunteer recommitment processes here</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- REPORTING CENTER -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="reporting-center-card-color">
+              <div class="image-container" id="reporting-center-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Reporting Center</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">View, approve &amp; submit your reports</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- VIDEO RESOURCES -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="video-resources-card-color">
+              <div class="image-container" id="video-resources-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Video Resources</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">View &amp; download promotional and support videos</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+
+      <!-- VOLUNTEER SELECTION & ONBOARDING -->
+      <a href="https://www.samaritanspurse.org">
+          <div class="app-card" id="volunteer-selection-ampersand-onboarding-card-color">
+              <div class="image-container" id="volunteer-selection-ampersand-onboarding-icon"></div>
+              <div class="text-container">
+                  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                      <div class="flipper">
+                          <div class="front">
+                              <p class="title">Volunteer Selection &amp; Onboarding</p>
+                          </div>
+                          <div class="back">
+                              <p class="description">Manage each step of the volunteer application process</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </a>
+  </div>
+
+
+

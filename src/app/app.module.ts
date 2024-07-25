@@ -45,7 +45,7 @@ import { WebSocketService } from './services/WebSocketService';
 import { AddPermissionDialogComponent } from './components/add-permission-dialog/add-permission-dialog.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
-
+import { ResourcesModule } from './components/resources/resources.module';
 import { PermissionsModule } from './components/permissions/permissions.module'; // Import PermissionModule
 import { AppModoluesModule } from './components/app-modolues/app-modolues.module';
 
@@ -100,8 +100,9 @@ import { MatTabsModule } from '@angular/material/tabs'; // Import MatTabsModule
     MatTreeModule,
     AppModoluesRoutingModule,
     PermissionsRoutingModule,
-    PermissionsModule, // Add Permission to imports
-    AppModoluesModule
+    PermissionsModule,// Add Permission to imports
+    AppModoluesModule,
+    ResourcesModule
 
   ],
   providers: [

@@ -8,38 +8,7 @@
     flex-grow: 1;
   }
   
- 
-  mat-sidenav{
-    height: 100%;
-  }
 
-  mat-sidenav-content{
-    height: 100vh;
-  }
-
-  .sidebar {
-    width: 240px;
-    padding: 16px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .sidebar h4 {
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
-  
-  .sidebar button {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-  }
-  
-  .sidebar button mat-icon {
-    margin-right: 8px;
-  }
   
   .main-content {
     margin-left: 240px;
@@ -63,3 +32,427 @@
     border: 1px solid #cbbdbd; /* Use the desired color for the border, here it's a light black shade */
   }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+  html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+} */
+
+a {
+  text-decoration: none;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+}
+.row--align-v-center {
+  align-items: center;
+}
+.row--align-h-center {
+  justify-content: center;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: "header" "main" "footer";
+  height: 100vh;
+  overflow-x: hidden;
+}
+.grid--noscroll {
+  overflow-y: hidden;
+}
+
+
+
+.main {
+  grid-area: main;
+  background-color: #eaedf1;
+  color: #394263;
+}
+.main__cards {
+  display: block;
+  column-count: 1;
+  column-gap: 20px;
+  /* margin: 20px; */
+}
+
+.main-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  color: #fff;
+  background-size: cover;
+  /* background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/lake-shadow-water.jpg"); */
+  background-image: url('src\assets\background\400.jpg'); 
+
+}
+.main-header__intro-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 160px; */
+  padding: 12px 30px;
+  /* background: rgba(255, 255, 255, 0.12); */
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.main-header__welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-header__welcome-title {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+.main-header__welcome-subtitle {
+  font-size: 12px;
+}
+
+.quickview {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 60px;
+}
+.quickview__item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.quickview__item-total {
+  margin-bottom: 2px;
+  font-size: 32px;
+}
+.quickview__item-description {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+@media only screen and (min-width: 46.875em) {
+  .grid {
+    display: grid;
+    grid-template-columns: 240px calc(100% - 240px);
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: "sidenav header" "sidenav main" "sidenav footer";
+    height: 100vh;
+  }
+
+
+}
+@media only screen and (min-width: 65.625em) {
+  .main__cards {
+    column-count: 2;
+  }
+
+  .main-header__intro-wrapper {
+    flex-direction: row;
+  }
+  .main-header__welcome {
+    align-items: flex-start;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* In case anyone is curious, I'm also the designer and producer of these icons */
+body {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: coral;
+}
+
+.title {
+  line-height: 0.93em;
+}
+
+.description {
+  font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: coral;
+}
+
+.app-card {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+
+.text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  color: #fff;
+}
+
+/* BEGIN FLIPPING ANIMATION */
+
+/* entire container, keeps perspective */
+
+.flip-container {
+  perspective: 1000px;
+}
+
+/* flipS the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  width: 120px;
+  height: 60px;
+}
+
+/* flip speed goes here */
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* BEGIN SPECIFIC CARD STYLES */
+
+/* DOCUMENT RESOURCES */
+
+#document-resources-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/document-resources.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#document-resources-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* DROP-OFF LOCATION MANAGEMENT */
+
+#drop-off-location-management-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/drop-off-location-management.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#drop-off-location-management-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* HOME */
+
+#home-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/home.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#home-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* LEADER INBOX */
+
+#leader-inbox-icon {
+  flex-basis: 60%;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/leader-inbox.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#leader-inbox-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* MY PROFILE SETTINGS */
+
+#my-profile-settings-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/my-profile-settings.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#my-profile-settings-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* NATIONAL PARTNERSHIP RESOURCES */
+
+#national-partnership-resources-icon {
+  flex-basis: 80%;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/national-partnership-resources.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#national-partnership-resources-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* RECOMMITMENT DASHBOARD */
+
+#recommitment-dashboard-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/recommitment-dashboard.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#recommitment-dashboard-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* REPORTING CENTER */
+
+#reporting-center-icon {
+  flex-basis: auto;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/reporting-center.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#reporting-center-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* VIDEO RESOURCES */
+
+#video-resources-icon {
+  flex-basis: 60%;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/video-resources.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#video-resources-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* VOLUNTEER SELECTION & ONBOARDING */
+
+#volunteer-selection-ampersand-onboarding-icon {
+  flex-basis: 85%;
+  background: url("https://cdn.samaritanspurse.org/global/occ/application-icons/volunteer-selection-ampersand-onboarding.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#volunteer-selection-ampersand-onboarding-card-color {
+  background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,95 @@
+/* Overall section styling */
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+.example-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Separate "Assign All" section styling */
+  .assign-all-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .assign-all-checkbox {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Container for child checkboxes */
+  .example-list-section {
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between items */
+  }
+  
+  /* Individual checkbox styling */
+  .checkbox-item {
+    width: calc(25% - 20px); /* Four items per row */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Hover effect for checkboxes */
+  .checkbox-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Checkbox label styling */
+  .mat-checkbox-label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Adjustments for a more modern look */
+  .mat-checkbox-inner-container {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Update button styling */
+  .update-button-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .update-button-section button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  /* Optional: Style for selected and indeterminate states */
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #3f51b5;
+  }
+  
+  .mat-checkbox-checked.mat-accent .mat-checkbox-checkmark-path,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-checkmark-path {
+    stroke: white;
+  }
+  
+  
