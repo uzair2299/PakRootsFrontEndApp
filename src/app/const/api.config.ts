@@ -6,9 +6,13 @@ export const API_VERSIONS = {
   export const API_ENDPOINTS = {
     permissionV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/permission/getAllActive`,
     permissionV2: `/api/${API_VERSIONS.v2}/permission`,
+    
     resources_getAllResourcesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/resources/getAllResources`,
     resources_getAllResourcesWithPermissions: `${API_BASE_URL}/api/${API_VERSIONS.v1}/resources/getAllResourcesWithPermissions`,
     resources_getResourceById: `${API_BASE_URL}/api/${API_VERSIONS.v1}/resources/getResourceById`,
     assign_resource_permisson: `${API_BASE_URL}/api/${API_VERSIONS.v1}/resources/assignResourcePermission`,
+
+
+    resources_getAllRolesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/getAllRoles`,
     // Add more endpoints as needed
   };

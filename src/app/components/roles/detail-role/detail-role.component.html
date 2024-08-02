@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <span>Role Details</span>
+      <span class="example-spacer"></span>
+      <button mat-stroked-button [routerLink]="'/roles'">Back to Roles</button>
+    </mat-toolbar>
+    <div class="resource-container" *ngFor="let resource of resources">
+      <mat-card class="resource-card">
+        <mat-card-header>
+          <mat-card-title>{{ resource.resourceEndpoint }}</mat-card-title>
+          <mat-card-subtitle>Method: {{ resource.methodType }} | Version: {{ resource.version }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content *ngIf="resource.permissions.length > 0">
+          <div class="permissions-container">
+            <span *ngFor="let permission of resource.permissions" class="permission-item">
+              {{ permission.permissionName }}
+            </span>
+          </div>
+        </mat-card-content>
+        <mat-card-content *ngIf="resource.permissions.length === 0">
+          <p>No permissions available.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    

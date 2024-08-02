@@ -1,0 +1,39 @@
+<mat-toolbar class="sub-toolbar">
+    <span class="text-color">Manage Resources</span>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button (click)="navigateToResource()"  class="text-color">Back to Resources</button>
+</mat-toolbar>
+
+
+<div class="neumorphic-form">
+    <form class="example-form" [formGroup]="resourceForm" (ngSubmit)="submitForm()">
+        <h1 class="form-heading">Add Resource</h1>
+      <mat-form-field class="input-group">
+        <mat-label>Resource Name</mat-label>
+        <input matInput placeholder="" name="resourceName" formControlName="resourceName">
+      </mat-form-field>
+      <mat-form-field class="input-group">
+        <mat-label>Resource End Point</mat-label>
+        <input matInput placeholder="" name="resourceEndpoint" formControlName="resourceEndpoint">
+      </mat-form-field>
+      <mat-form-field class="input-group">
+        <mat-label>Version</mat-label>
+        <input matInput placeholder="" name="version" formControlName="version">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select HTTP Method</mat-label>
+        <mat-select  formControlName="methodType" name="methodType">
+          <mat-option *ngFor="let method of httpMethods" [value]="method.value">
+            {{method.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox class="example-margin" name="isActive" formControlName="isActive">Is Active</mat-checkbox>
+      <mat-checkbox class="example-margin" name="isAuthRequired" formControlName="isAuthRequired">isAuthRequired</mat-checkbox>
+      <mat-checkbox class="example-margin" name="isDeprecated" formControlName="isDeprecated">isDeprecated</mat-checkbox>
+      
+      <button mat-raised-button color="primary" class="btn-block" type="submit">Add</button>
+    </form>
+  </div>
+  

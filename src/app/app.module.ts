@@ -37,7 +37,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { RolesComponent } from './components/roles/roles.component';
 import { AddRoleDialogComponent } from './components/add-role-dialog/add-role-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DataService } from './services/DataService';
@@ -46,6 +45,7 @@ import { AddPermissionDialogComponent } from './components/add-permission-dialog
 import { MenuComponent } from './components/menu/menu.component';
 import { DeleteConfirmationDialogComponent } from './components/common/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import { ResourcesModule } from './components/resources/resources.module';
+import { RolesModule } from './components/roles/roles.module';
 import { PermissionsModule } from './components/permissions/permissions.module'; // Import PermissionModule
 import { AppModoluesModule } from './components/app-modolues/app-modolues.module';
 
@@ -54,6 +54,10 @@ import { AppModoluesRoutingModule } from './components/app-modolues/app-modolues
 import { ResponseInterceptorService } from './interceptor/response/response-interceptor.service';
 import { MyChatComponent } from './components/my-chat/my-chat.component';
 import { MatTabsModule } from '@angular/material/tabs'; // Import MatTabsModule
+import { RolesRoutingModule } from './components/roles/roles-routing.module';
+import { ResourcesRoutingModule } from './components/resources/resources-routing.module';
+import { UsersRoutingModule } from './components/users/users-routing.module';
+import { UsersModule } from './components/users/users.module';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,6 @@ import { MatTabsModule } from '@angular/material/tabs'; // Import MatTabsModule
     ToolbarComponent,
     NavBarComponent,
     SidebarComponent,
-    RolesComponent,
     AddRoleDialogComponent,
     AddPermissionDialogComponent,
     MenuComponent,
@@ -100,9 +103,14 @@ import { MatTabsModule } from '@angular/material/tabs'; // Import MatTabsModule
     MatTreeModule,
     AppModoluesRoutingModule,
     PermissionsRoutingModule,
+    RolesRoutingModule,
     PermissionsModule,// Add Permission to imports
     AppModoluesModule,
-    ResourcesModule
+    ResourcesModule,
+    ResourcesRoutingModule,
+    RolesModule,
+    UsersModule,
+    UsersRoutingModule
 
   ],
   providers: [

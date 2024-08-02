@@ -1,0 +1,41 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+.form-heading {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+
+.neumorphic-form {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Occupy full available width */
+  }
+  
+  .example-form {
+    background: #f0f0f0;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #c8c8c8, -8px -8px 16px #ffffff;
+    padding: 40px;
+    width: 100%; /* Occupy full width */
+  }
+  
+  .input-group {
+    width: 100%; /* Full width for input group */
+  }
+  
+  /* Adjust input width to occupy full width */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+  }
+  

@@ -4,7 +4,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {  RolesComponent} from './components/roles/roles.component';
 import {  MenuComponent} from './components/menu/menu.component';
 import { MyChatComponent } from './components/my-chat/my-chat.component';
 
@@ -25,10 +24,6 @@ const routes: Routes = [
   {
     path:'notFound',
     component:NotFoundComponent
-  },
-  {
-    path:'roles',
-    component:RolesComponent
   },
   {
     path:'menu',

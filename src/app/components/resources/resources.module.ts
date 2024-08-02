@@ -23,12 +23,14 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AsignResoucePermissionsComponent } from './asign-resouce-permissions/asign-resouce-permissions.component';
+import { AddResourceComponent } from './add-resource/add-resource.component';
 
 
 @NgModule({
   declarations: [
     ViewResourcesComponent,
-    AsignResoucePermissionsComponent
+    AsignResoucePermissionsComponent,
+    AddResourceComponent
   ],
   imports: [
     CommonModule,

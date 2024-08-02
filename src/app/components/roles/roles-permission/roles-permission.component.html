@@ -1,0 +1,20 @@
+<mat-toolbar>
+    <span>Assign Role Permissions</span>
+      <span class="example-spacer"></span>
+      <button mat-stroked-button [routerLink]="'/roles'">Back to Roles</button>
+    </mat-toolbar>
+
+    <div *ngFor="let resource of resources" class="resource-container">
+        <div class="resource-header">
+          <mat-checkbox (change)="selectAll(resource, $event)" [checked]="areAllPermissionsChecked(resource)">Select All - {{ resource.resourceEndpoint }}</mat-checkbox>
+        </div>
+        
+        <div class="permission-list">
+          <mat-checkbox *ngFor="let permission of resource.permissions" 
+                        [(ngModel)]="permission.checked" 
+                        (change)="onPermissionChange(resource, permission)">
+            {{ permission.permissionName }} - {{ resource.resourceEndpoint }}
+          </mat-checkbox>
+        </div>
+        <mat-divider></mat-divider>
+      </div>

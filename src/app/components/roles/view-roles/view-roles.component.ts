@@ -8,32 +8,23 @@ import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
 
 
-export interface ResourceDto {
-  resourceId: number;
-  resourceName: string;
-  resourceEndpoint: string;
-  version: string;
-  methodType: string;
+export interface RolesDto {
+  id: number;
+  roleName: string;
   description?: string | null; // Optional, can be string or null
-  rateLimit?: number | null;   // Optional, can be number or null
-  documentationUrl?: string | null; // Optional, can be string or null
-  owner?: string | null;       // Optional, can be string or null
-  permissions: string[];       // Array of strings, could also be an array of another type depending on implementation
-  active: boolean;
-  deprecated: boolean;
-  authRequired: boolean;
 }
 
+
 @Component({
-  selector: 'app-view-resources',
-  templateUrl: './view-resources.component.html',
-  styleUrls: ['./view-resources.component.css']
+  selector: 'app-view-roles',
+  templateUrl: './view-roles.component.html',
+  styleUrls: ['./view-roles.component.css']
 })
-export class ViewResourcesComponent {
+export class ViewRolesComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  displayedColumns: string[] = ['resourceId', 'resourceName', 'resourceEndpoint', 'version', 'methodType','permissions','actions'];
-  dataSource!: MatTableDataSource<ResourceDto>;
+  displayedColumns: string[] = ['id', 'roleName', 'description','actions'];
+  dataSource!: MatTableDataSource<RolesDto>;
   resources: any[] = [];
   constructor(public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -42,11 +33,11 @@ export class ViewResourcesComponent {
   ) {}
 
     ngOnInit() {
-      this.dataSource = new MatTableDataSource<ResourceDto>(this.resources);
+      this.dataSource = new MatTableDataSource<RolesDto>(this.resources);
       this.getResourcesV1();
     }
     getResourcesV1() {
-      this.httpService.get<any>(API_ENDPOINTS.resources_getAllResourcesWithPermissions)
+      this.httpService.get<any>(API_ENDPOINTS.resources_getAllRolesV1)
       .pipe(
         catchError(error => {
           console.error('Error in POST request:', error);
@@ -68,10 +59,12 @@ export class ViewResourcesComponent {
       });
     }
     navigateToResource(resourceId: number) {
-      this.router.navigate([`/resources/getResourceById`, resourceId]);
+      this.router.navigate([`roles/assignRolePermissionById`, resourceId]);
     }
 
-    navigateToAddResource() {
-      this.router.navigate([`resources/v1/addResource`]);
+    navigateToRoleDetail(resourceId: number) {
+      this.router.navigate([`roles/detailRolePermissionById`, resourceId]);
     }
+
+
 }
