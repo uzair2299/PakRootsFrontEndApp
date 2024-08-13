@@ -4,6 +4,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { MatDrawer } from '@angular/material/sidenav';
 import { SidebarService } from "./services/SidebarService";
 import { Subject } from 'rxjs';
+import { MessageService } from './services/MessageService';
 
 @Component({
   selector: 'app-root',
@@ -20,11 +21,23 @@ export class AppComponent {
 
   constructor(private sidebarService: SidebarService,
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) { }
 
 
   ngOnInit() {
+    const currentUrl = window.location.href;
+    console.log("currentUrl",currentUrl)
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get("username");
+  if (username) {
+    const decodedUsername = decodeURIComponent(username);
+    console.log('Username:', decodedUsername);
+  } else {
+    console.error('Username is null');
+  }
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       takeUntil(this.destroy$)

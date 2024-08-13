@@ -15,4 +15,7 @@ export const API_VERSIONS = {
 
     resources_getAllRolesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/getAllRoles`,
     // Add more endpoints as needed
+
+
+    users_getAllUsersV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/getAllUsers`,
   };

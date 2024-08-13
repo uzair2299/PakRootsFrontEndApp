@@ -58,6 +58,7 @@ import { RolesRoutingModule } from './components/roles/roles-routing.module';
 import { ResourcesRoutingModule } from './components/resources/resources-routing.module';
 import { UsersRoutingModule } from './components/users/users-routing.module';
 import { UsersModule } from './components/users/users.module';
+import { MessageService } from './services/MessageService';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,7 @@ import { UsersModule } from './components/users/users.module';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptorService, multi: true },
-    DataService,WebSocketService],
+    DataService,WebSocketService,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

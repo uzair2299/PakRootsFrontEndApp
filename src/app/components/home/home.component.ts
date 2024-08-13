@@ -17,6 +17,16 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
+    const currentUrl = window.location.href;
+    console.log("currentUrl from home",currentUrl)
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get("username");
+  if (username) {
+    const decodedUsername = decodeURIComponent(username);
+    console.log('Username:', decodedUsername);
+  } else {
+    console.error('Username is null');
+  }
     this.currentDate = new Date();
   }
 }
