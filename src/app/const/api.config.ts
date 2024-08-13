@@ -18,4 +18,6 @@ export const API_VERSIONS = {
 
 
     users_getAllUsersV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/getAllUsers`,
+    users_resetPasswordV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/resetUserPassword`,
+    users_getUserDetailWithRolesByIdV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/getUserRoles`,
   };

@@ -1,17 +1,12 @@
 <mat-toolbar>
-    <span>Assign Resource permissions</span>
+    <span>Assign User Roles</span>
     <span class="example-spacer"></span>
-    <button mat-stroked-button [routerLink]="'/resources'">Back to Resources</button>
+    <button mat-stroked-button [routerLink]="'/users'">Back to Users</button>
 </mat-toolbar>
 
 <section class="example-section">
-    <p><strong>Description:</strong> {{ responseData?.description }}</p>
-    <p><strong>Owner:</strong> {{ responseData?.owner }}</p>
-    <p><strong>Method Type:</strong> {{ responseData?.methodType }}</p>
-    <p><strong>Endpoint:</strong> {{ responseData?.resourceEndpoint }}</p>
-    <p><strong>Rate Limit:</strong> {{ responseData?.rateLimit }}</p>
-    <p><strong>Documentation:</strong> <a [href]="responseData?.documentationUrl" target="_blank">{{
-            responseData?.documentationUrl }}</a></p>
+    <p><strong>User Name:</strong> {{ responseData?.userName }}</p>
+    <p><strong>Email:</strong> {{ responseData?.email }}</p>
     <!-- Separate "Assign All" checkbox -->
     <div class="assign-all-section">
         <mat-checkbox class="assign-all-checkbox" [checked]="task().completed" [indeterminate]="partiallyComplete()"
@@ -32,6 +27,6 @@
 
     <div class="update-button-section">
         <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
-      
+        <button mat-raised-button color="warn" [routerLink]="'/users'">Cancel</button>
     </div>
 </section>

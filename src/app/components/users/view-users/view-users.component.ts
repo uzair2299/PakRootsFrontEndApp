@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
+import { UserPasswordResetDialogComponent } from '../user-password-reset-dialog/user-password-reset-dialog.component';
 
 export interface UserDto {
   id: number;
@@ -33,21 +34,22 @@ export interface UserDto {
 export class ViewUsersComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  displayedColumns: string[] = ['id', 'userName', 'firstName', 'lastName', 'email','dateJoined','lastLogin','isActive','isLocked','primaryPhone','secondaryPhone','workPhone','actions'];
+  displayedColumns: string[] = ['id', 'userName', 'firstName', 'lastName', 'email', 'dateJoined', 'lastLogin', 'isActive', 'isLocked', 'primaryPhone', 'secondaryPhone', 'workPhone', 'actions'];
   dataSource!: MatTableDataSource<UserDto>;
   resources: any[] = [];
   constructor(public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private httpService: HttpService,
-    private router:Router
-  ) {}
+    private router: Router
 
-    ngOnInit() {
-      this.dataSource = new MatTableDataSource<UserDto>(this.resources);
-      this.getResourcesV1();
-    }
-    getResourcesV1() {
-      this.httpService.get<any>(API_ENDPOINTS.users_getAllUsersV1)
+  ) { }
+
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource<UserDto>(this.resources);
+    this.getResourcesV1();
+  }
+  getResourcesV1() {
+    this.httpService.get<any>(API_ENDPOINTS.users_getAllUsersV1)
       .pipe(
         catchError(error => {
           console.error('Error in POST request:', error);
@@ -67,12 +69,31 @@ export class ViewUsersComponent {
           console.error('Error in POST request:', error);
         }
       });
-    }
-    navigateToResource(resourceId: number) {
-      this.router.navigate([`/resources/getResourceById`, resourceId]);
-    }
+  }
+  navigateToResource(resourceId: number) {
+    this.router.navigate([`/resources/getResourceById`, resourceId]);
+  }
 
-    navigateToAddResource() {
-      this.router.navigate([`resources/v1/addResource`]);
-    }
+  navigateToAddResource() {
+    this.router.navigate([`resources/v1/addResource`]);
+  }
+
+  navigateToAssignUserRoles(id: number) {
+    this.router.navigate([`users/v1/assignUserRoles`, id]);
+  }
+
+  
+
+
+  passwordReset(id: number): void {
+    const dialogRef = this.dialog.open(UserPasswordResetDialogComponent, {
+      width: '500px',
+      data: { id: id } // You can pass data to the dialog component
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Handle any actions after the dialog is closed
+    });
+  }
 }

@@ -24,11 +24,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AssignUserRolesComponent } from './assign-user-roles/assign-user-roles.component';
+import { UserPasswordResetDialogComponent } from './user-password-reset-dialog/user-password-reset-dialog.component';
 
 
 @NgModule({
   declarations: [
-    ViewUsersComponent
+    ViewUsersComponent,
+    AssignUserRolesComponent,
+    UserPasswordResetDialogComponent
   ],
   imports: [
     CommonModule,
