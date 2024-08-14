@@ -14,10 +14,13 @@ export const API_VERSIONS = {
 
 
     resources_getAllRolesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/getAllRoles`,
+    roles_assignUserRoles: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/assignUserRoles`,
     // Add more endpoints as needed
 
 
     users_getAllUsersV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/getAllUsers`,
     users_resetPasswordV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/resetUserPassword`,
     users_getUserDetailWithRolesByIdV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/users/getUserRoles`,
+    
+
   };

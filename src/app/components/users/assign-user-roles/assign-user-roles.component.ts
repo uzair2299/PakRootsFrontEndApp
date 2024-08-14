@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
@@ -81,7 +82,10 @@ export class AssignUserRolesComponent {
   }
 
   
-  constructor(private httpService: HttpService, private route: ActivatedRoute) { }
+  constructor(private httpService: HttpService, private route: ActivatedRoute,
+    private router:Router,
+    private _snackBar: MatSnackBar,
+  ) { }
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.itemId = params['id'];
@@ -133,7 +137,7 @@ export class AssignUserRolesComponent {
     const taskData = this.task();
     console.log('Task Data:', taskData);
     console.log(`${API_ENDPOINTS.assign_resource_permisson}/${this.itemId}`);
-    this.httpService.post<any>(`${API_ENDPOINTS.assign_resource_permisson}/${this.itemId}`,taskData.subtasks).pipe(
+    this.httpService.post<any>(`${API_ENDPOINTS.roles_assignUserRoles}/${this.itemId}`,taskData.subtasks).pipe(
       catchError(error => {
         console.error('Error in POST request:', error);
         // Handle the error here or re-throw it to propagate
@@ -144,10 +148,20 @@ export class AssignUserRolesComponent {
     .subscribe({
       next: response => {
         console.log('POST request successful:', response);
+        this.openSnackBar('User roles has been successfully update')
+        this.router.navigate(['/users']);
       },
       error: error => {
         console.error('Error in POST request:', error);
       }
+    });
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 2000, // Duration in milliseconds
+      horizontalPosition: 'end', // Positioning the snackbar horizontally
+      verticalPosition: 'top', // Positioning the snackbar vertically
     });
   }
 

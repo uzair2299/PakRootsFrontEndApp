@@ -1,5 +1,5 @@
 import { Component, computed,signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
@@ -38,7 +38,7 @@ export class AsignResoucePermissionsComponent {
   itemId: any;
   responseData: ResourceData | null = null;
 
-  constructor(private httpService: HttpService,private route:ActivatedRoute) {}
+  constructor(private httpService: HttpService,private route:ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -129,6 +129,7 @@ export class AsignResoucePermissionsComponent {
     .subscribe({
       next: response => {
         console.log('POST request successful:', response);
+        this.router.navigate(['/resources']);
       },
       error: error => {
         console.error('Error in POST request:', error);
