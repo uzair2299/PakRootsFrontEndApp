@@ -24,18 +24,20 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RolesPermissionComponent } from './roles-permission/roles-permission.component';
-import { AddRoleComponent } from './add-role/add-role.component';
+//import { AddRoleComponent } from './add-role/add-role.component';
 import { DetailRoleComponent } from './detail-role/detail-role.component';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatChipsModule } from '@angular/material/chips';
+import { AddRoleDialogComponent } from './add-role-dialog/add-role-dialog.component';
 
 @NgModule({
   declarations: [
     ViewRolesComponent,
     RolesPermissionComponent,
-    AddRoleComponent,
-    DetailRoleComponent
+    //AddRoleComponent,
+    DetailRoleComponent,
+    AddRoleDialogComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 <mat-toolbar class="sub-toolbar">
     <span class="text-color">Manage Roles</span>
     <span class="example-spacer"></span>
-    <button mat-stroked-button [routerLink]="['/roles/v1/addRole']" class="text-color">Add New Role</button>
+    <button mat-stroked-button type="button" (click)="openAddRoleDialgo()" class="text-color">Add New Role</button>
 </mat-toolbar>
 <table mat-table [dataSource]="dataSource" matSort class="neumorphic-table">
     

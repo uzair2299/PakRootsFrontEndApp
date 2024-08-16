@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
+import { AddRoleDialogComponent } from '../add-role-dialog/add-role-dialog.component';
 
 
 export interface RolesDto {
@@ -66,5 +67,18 @@ export class ViewRolesComponent {
       this.router.navigate([`roles/detailRolePermissionById`, resourceId]);
     }
 
+
+    openAddRoleDialgo(): void {
+      const dialogRef = this.dialog.open(AddRoleDialogComponent, {
+        width: '500px',
+         // You can pass data to the dialog component
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.router.navigate(['/roles']);
+        // Handle any actions after the dialog is closed
+      });
+    }
 
 }
