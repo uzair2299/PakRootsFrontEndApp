@@ -18,3 +18,8 @@
         </div>
         <mat-divider></mat-divider>
       </div>
+
+      <div class="update-button-section">
+        <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+        <button mat-raised-button color="warn" [routerLink]="'/roles'">Cancel</button>
+    </div>

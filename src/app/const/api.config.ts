@@ -14,7 +14,10 @@ export const API_VERSIONS = {
 
 
     resources_getAllRolesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/getAllRoles`,
+    roles_createRoleV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/createRole`,
     roles_assignUserRoles: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/assignUserRoles`,
+    roles_assignRolesPermission: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/assignRolesPermission`,
+    roles_getRoleAssignResourcesPermission: `${API_BASE_URL}/api/${API_VERSIONS.v1}/roles/getRoleAssignResourcesPermission`,
     // Add more endpoints as needed
 
 

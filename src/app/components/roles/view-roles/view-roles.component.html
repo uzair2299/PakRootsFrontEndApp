@@ -61,15 +61,20 @@
             </button>
             <mat-menu #menu="matMenu">
 
+              <button mat-menu-item (click)="navigateToResource(element.id)">
+                <mat-icon>edit</mat-icon>
+                <span>Edit Role</span>
+              </button>
+
             <button mat-menu-item (click)="navigateToResource(element.id)">
                 <mat-icon>assignment</mat-icon>
-                <span>Assign permission</span>
+                <span>Assign permissions</span>
               </button>
 
               
             <button mat-menu-item (click)="navigateToRoleDetail(element.id)">
               <mat-icon>remove_red_eye</mat-icon>
-                <span>Assign permission</span>
+                <span>View permissions</span>
               </button>
             <!-- <button mat-icon-button>
                 <mat-icon class="edit-btn-icon">edit</mat-icon>

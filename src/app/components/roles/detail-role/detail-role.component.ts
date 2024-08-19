@@ -26,6 +26,17 @@ export interface Resource {
   authRequired: boolean;
 }
 
+export interface RoleDto {
+  id: number;
+  roleName: string;
+  description: string;
+  createdAt: number;
+  updatedAt: number;
+  endPoint: string;
+  isDeleted: boolean;
+  roleIds: number[];
+}
+
 @Component({
   selector: 'app-detail-role',
   templateUrl: './detail-role.component.html',
@@ -45,7 +56,18 @@ export class DetailRoleComponent {
   });
   }
   getResourcesV1() {
-    this.httpService.get<any>(API_ENDPOINTS.resources_getAllResourcesWithPermissions)
+
+    const roleDto: RoleDto = {
+      id: 0, // Assuming you have a value for id
+      roleName: '',
+      description: '',
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      endPoint: '',
+      isDeleted: false,
+      roleIds: [this.itemId] // Add itemId to roleIds array
+    };
+    this.httpService.post<any>(API_ENDPOINTS.roles_getRoleAssignResourcesPermission,roleDto)
     .pipe(
       catchError(error => {
         console.error('Error in POST request:', error);

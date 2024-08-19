@@ -1,3 +1,15 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+  .update-button-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .update-button-section button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin:5px;
+  }
+  

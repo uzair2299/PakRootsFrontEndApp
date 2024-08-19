@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
@@ -9,6 +10,7 @@ export interface Permission {
   permissionName: string;
   deleted: boolean;
   checked: boolean;
+  resourcesPermissionsId:Number
 }
 
 export interface Resource {
@@ -37,7 +39,10 @@ export class RolesPermissionComponent {
   itemId: any;
   //resources: any[] = [];
   resources: Resource[] = [];
-  constructor(private httpService: HttpService,private route:ActivatedRoute) {}
+  constructor(private httpService: HttpService,
+    private route:ActivatedRoute, 
+    private _snackBar: MatSnackBar,
+  private router:Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -84,4 +89,40 @@ export class RolesPermissionComponent {
     // Logic to handle permission change, if needed
     console.log(`Permission ${permission.permissionName} changed to ${permission.checked}`);
   }
+
+
+  onUpdate() {
+    // Logic to handle the update action
+    console.log('Update button clicked');
+    const taskData = this.resources
+    console.log('Task Data:', taskData);
+    console.log(`${API_ENDPOINTS.assign_resource_permisson}/${this.itemId}`);
+    this.httpService.post<any>(`${API_ENDPOINTS.roles_assignRolesPermission}/${this.itemId}`,taskData).pipe(
+      catchError(error => {
+        console.error('Error in POST request:', error);
+        // Handle the error here or re-throw it to propagate
+        // return throwError(error); // Uncomment this line if you want to propagate the error
+        return throwError(() => error); // Or return a new observable with the error
+      })
+    )
+    .subscribe({
+      next: response => {
+        console.log('POST request successful:', response);
+        this.openSnackBar('User roles has been successfully update')
+        this.router.navigate(['/users']);
+      },
+      error: error => {
+        console.error('Error in POST request:', error);
+      }
+    });
+  }
+  
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 2000, // Duration in milliseconds
+      horizontalPosition: 'end', // Positioning the snackbar horizontally
+      verticalPosition: 'top', // Positioning the snackbar vertically
+    });
+  }
+
 }
