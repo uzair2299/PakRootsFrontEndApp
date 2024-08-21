@@ -24,6 +24,21 @@ export class HttpService {
     return this.http.post<T>(url, body, options);
   }
 
+  // Function for making POST requests
+  put<T>(url: string, body: any, options?: {
+    headers?: HttpHeaders | {
+      [header: string]: string | string[];
+    };
+    params?: HttpParams | {
+      [param: string]: string | string[];
+    };
+    reportProgress?: boolean;
+    responseType?: 'json';
+    withCredentials?: boolean;
+  }): Observable<T> {
+    return this.http.put<T>(url, body, options);
+  }
+
    // Function for making GET requests
    get<T>(url: string, options?: {
     headers?: HttpHeaders | {

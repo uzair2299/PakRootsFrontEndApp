@@ -1,24 +1,36 @@
 <mat-toolbar>
-    <span>Role Details</span>
-      <span class="example-spacer"></span>
-      <button mat-stroked-button [routerLink]="'/roles'">Back to Roles</button>
-    </mat-toolbar>
-    <div class="resource-container" *ngFor="let resource of resources">
-      <mat-card class="resource-card">
-        <mat-card-header>
-          <mat-card-title>{{ resource.resourceEndpoint }}</mat-card-title>
-          <mat-card-subtitle>Method: {{ resource.methodType }} | Version: {{ resource.version }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content *ngIf="resource.permissions.length > 0">
-          <div class="permissions-container">
-            <span *ngFor="let permission of resource.permissions" class="permission-item">
-              {{ permission.permissionName }}
-            </span>
-          </div>
-        </mat-card-content>
-        <mat-card-content *ngIf="resource.permissions.length === 0">
-          <p>No permissions available.</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-    
+  <span>Role Details</span>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button [routerLink]="'/roles'">Back to Roles</button>
+  </mat-toolbar>
+<div class="resource-container">
+  <mat-card class="resource-card">
+    <mat-card-header>
+      <mat-card-title>Role Name : {{ resources[0]?.roles?.roleName || 'No Role' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col" *ngFor="let resource of resources[0]?.roles?.resources">
+          <mat-divider></mat-divider>    
+          <mat-card-title>Resource Name : {{ resource.resourceName }}</mat-card-title>
+          <mat-card-title>Resource endpoint : {{ resource.resourceEndpoint }}</mat-card-title>
+
+            <mat-card-content>
+              <div class="permissions-container">
+                <div *ngIf="resource.permissions.length > 0">
+                  <span> Permissions : </span>
+                    <span *ngFor="let permissionItem of resource.permissions" class="badge badge-light-primary fs-7 fw-bold m-1">
+                      {{ permissionItem.permissionName }}
+                    </span>
+                </div>
+                <div *ngIf="resource.permissions.length === 0">
+                  No permissions available
+                </div>
+              </div>
+            </mat-card-content>
+
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

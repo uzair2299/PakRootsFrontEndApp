@@ -21,3 +21,6 @@
     display: inline-block; /* Ensures items are inline */
   }
   
+  .badge {
+    display: inline-block;
+  }

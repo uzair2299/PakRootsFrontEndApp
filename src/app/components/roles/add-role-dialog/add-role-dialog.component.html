@@ -1,5 +1,5 @@
 <div class="password-set-container">
-    <h2 class="form-heading">Add New Role</h2>
+    <h2 class="form-heading"> {{ data ? 'Update Role' : 'Add New Role' }}</h2>
     <form [formGroup]="addRoleForm" (ngSubmit)="submitForm()">
       <mat-form-field class="full-width">
         <mat-label>Role Name</mat-label>
@@ -12,7 +12,7 @@
       </mat-form-field>
   
       <div class="button-section">
-        <button mat-raised-button color="primary" type="submit" class="full-button">Add New Role</button>
+        <button mat-raised-button color="primary" type="submit" class="full-button">{{ data ? 'Update Role' : 'Add New Role' }}</button>
         <button mat-raised-button color="warn" type="button" class="full-button" (click)="onCancel()">Cancel</button>
       </div>
     </form>

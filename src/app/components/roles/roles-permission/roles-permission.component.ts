@@ -109,7 +109,7 @@ export class RolesPermissionComponent {
       next: response => {
         console.log('POST request successful:', response);
         this.openSnackBar('User roles has been successfully update')
-        this.router.navigate(['/users']);
+        this.router.navigate(['/roles']);
       },
       error: error => {
         console.error('Error in POST request:', error);

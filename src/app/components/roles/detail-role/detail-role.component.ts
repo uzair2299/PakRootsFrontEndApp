@@ -3,6 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { API_ENDPOINTS } from 'src/app/const/api.config';
 import { HttpService } from 'src/app/services/http.service';
+
+
+
+
+// RoleAssignedResourcePermissionDTO Interface
+export interface RoleAssignedResourcePermissionDTO_ {
+  roles: RoleDto;
+}
+
+
+
 export interface Permission {
   id: number;
   permissionName: string;
@@ -35,6 +46,7 @@ export interface RoleDto {
   endPoint: string;
   isDeleted: boolean;
   roleIds: number[];
+  resources: Resource[];
 }
 
 @Component({
@@ -45,7 +57,7 @@ export interface RoleDto {
 export class DetailRoleComponent {
   itemId: any;
   //resources: any[] = [];
-  resources: Resource[] = [];
+  resources: RoleAssignedResourcePermissionDTO_[] = [];
   constructor(private httpService: HttpService,private route:ActivatedRoute) {}
 
   ngOnInit() {
@@ -65,7 +77,8 @@ export class DetailRoleComponent {
       updatedAt: Date.now(),
       endPoint: '',
       isDeleted: false,
-      roleIds: [this.itemId] // Add itemId to roleIds array
+      roleIds: [this.itemId], // Add itemId to roleIds array
+      resources:[]
     };
     this.httpService.post<any>(API_ENDPOINTS.roles_getRoleAssignResourcesPermission,roleDto)
     .pipe(
@@ -81,6 +94,7 @@ export class DetailRoleComponent {
         this.resources = response;
         console.log('Response:', response);
         console.log('POST request successful:', this.resources);
+       
       },
       error: error => {
         console.error('Error in POST request:', error);

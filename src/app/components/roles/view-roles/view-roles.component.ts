@@ -81,4 +81,21 @@ export class ViewRolesComponent {
       });
     }
 
+    openUpdateRoleDialog(roleId: number): void {
+      console.log("roleId",roleId)
+      const dialogRef = this.dialog.open(AddRoleDialogComponent, {
+        width: '500px',
+         // You can pass data to the dialog component
+         data:roleId
+      });
+      
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.router.navigate(['/roles']);
+        // Handle any actions after the dialog is closed
+      });
+    }
+
+    
+
 }
