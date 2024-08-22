@@ -3,6 +3,11 @@
     <span class="example-spacer"></span>
     <button mat-stroked-button type="button" (click)="openAddRoleDialgo()" class="text-color">Add New Role</button>
 </mat-toolbar>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. adm" #input>
+</mat-form-field>
 <table mat-table [dataSource]="dataSource" matSort class="neumorphic-table">
     
     <!-- ID Column -->

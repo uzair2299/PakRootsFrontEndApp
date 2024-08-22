@@ -44,7 +44,7 @@ export class AddRoleDialogComponent {
             this.addRoleForm.patchValue({
               roleName: response.roleName,
               description: response.description,
-              isDeleted: response.deleted
+              isDeleted: response.isDeleted
             });
 
           },
