@@ -53,6 +53,20 @@ export class HttpService {
     return this.http.get<T>(url, options);
   }
 
+     // Function for making GET requests
+     get_<T>(url: string, options?: {
+      headers?: HttpHeaders | {
+        [header: string]: string | string[];
+      };
+      params?: HttpParams | {
+        [param: string]: string | string[];
+      };
+      responseType?: 'json';
+      withCredentials?: boolean;
+    }): Observable<HttpResponse<T>> {
+      return this.http.get<T>(url, { ...options, observe: 'response' });
+    }
+
    // Function for making DELETE requests
    delete<T>(url: string, options?: {
     headers?: HttpHeaders | { [header: string]: string | string[] };

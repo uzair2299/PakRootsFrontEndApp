@@ -98,4 +98,16 @@
     <!-- <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr> -->
+    <tr *matNoDataRow>
+      <td class="no-data-cell" colspan="4">
+        <div class="no-data-container">
+          <mat-icon class="no-data-icon">info_outline</mat-icon>
+          <span class="no-data-text">No data available</span>
+        </div>
+      </td>
+    </tr>
 </table>
+<mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="pageIndex"
+               [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons
+               (page)="onPageChange($event)">
+</mat-paginator>
