@@ -1,90 +1,93 @@
 <div class="sidebar">
-    <mat-nav-list class="custom-nav-list">
-      <mat-list-item (click)="toggle('item1')" [class.open]="isOpen === 'item1'">
-        <div class="icon-container">
-          <div class="flex-container">
-            <span>People & Permissions</span>
-            <mat-icon mat-list-icon>{{ isOpen === 'item1' ? 'expand_less' : 'expand_more' }}</mat-icon>
-          </div>          
+  <mat-nav-list class="custom-nav-list">
+    <mat-list-item (click)="toggle('item1')" [class.open]="isOpen === 'item1'">
+      <div class="icon-container">
+        <div class="flex-container">
+          <span>People & Permissions</span>
+          <mat-icon mat-list-icon>{{ isOpen === 'item1' ? 'expand_less' : 'expand_more' }}</mat-icon>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list *ngIf="isOpen === 'item1'" class="p0">
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/appModules'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">line_style</mat-icon>
+          <span>App Modules</span>
         </div>
       </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list *ngIf="isOpen === 'item1'" class="p0">
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/appModules'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">line_style</mat-icon>
-            <span>App Modules</span>
-          </div>
-        </mat-list-item>
 
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/resources'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">control_camera</mat-icon>
-            <span>Resources</span>
-          </div>
-        </mat-list-item>
-
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/permissions'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">group_work</mat-icon>
-            <span>Permissions</span>
-          </div>
-        </mat-list-item>
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">account_tree</mat-icon>
-            <span>Roles</span>
-          </div>
-        </mat-list-item>
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/menu'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">menu</mat-icon>
-            <span>Menu Management</span>
-          </div>
-        </mat-list-item>
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/users'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">people</mat-icon>
-            <span>User Management</span>
-          </div>
-        </mat-list-item>
-
-        <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/chat'">
-          <div class="flex-container">
-            <mat-icon mat-list-icon class="mr2">chat_bubble</mat-icon>
-            <span>Chat</span>
-          </div>
-        </mat-list-item>
-
-        <mat-list-item>
-          <h4 mat-line>Roles Permission</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <h4 mat-line>Roles Permission</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <h4 mat-line>Roles Permission</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <h4 mat-line>Roles Permission</h4>
-        </mat-list-item>
-
-      </mat-list>
-      <mat-divider></mat-divider>
-      <mat-list-item (click)="toggle('item2')" [class.open]="isOpen === 'item2'">
-        <div class="icon-container">
-          <h4 mat-line>Item 2</h4>
-          <mat-icon mat-list-icon>{{ isOpen === 'item2' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/resources'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">control_camera</mat-icon>
+          <span>Resources</span>
         </div>
       </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list *ngIf="isOpen === 'item2'">
-        <mat-list-item>
-          <h4 mat-line>Sub Item 3</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <h4 mat-line>Sub Item 4</h4>
-        </mat-list-item>
-      </mat-list>
-    </mat-nav-list>
-  </div>
+
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/permissions'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">group_work</mat-icon>
+          <span>Permissions</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/roles'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">account_tree</mat-icon>
+          <span>Roles</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/menu'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">menu</mat-icon>
+          <span>Menu Management</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/users'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">people</mat-icon>
+          <span>User Management</span>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/chat'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">chat_bubble</mat-icon>
+          <span>Chat</span>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <h4 mat-line>Roles Permission</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Roles Permission</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Roles Permission</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Roles Permission</h4>
+      </mat-list-item>
+
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item (click)="toggle('item2')" [class.open]="isOpen === 'item2'">
+      <div class="icon-container">
+        <h4 mat-line>Org Management</h4>
+        <mat-icon mat-list-icon>{{ isOpen === 'item2' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list *ngIf="isOpen === 'item2'">
+      <mat-list-item class="centered-item cursor-pointer" [routerLink]="'/categories'">
+        <div class="flex-container">
+          <mat-icon mat-list-icon class="mr2">line_style</mat-icon>
+          <span>Categories</span>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Sub Item 4</h4>
+      </mat-list-item>
+    </mat-list>
+  </mat-nav-list>
+</div>

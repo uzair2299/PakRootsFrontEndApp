@@ -59,6 +59,14 @@ import { ResourcesRoutingModule } from './components/resources/resources-routing
 import { UsersRoutingModule } from './components/users/users-routing.module';
 import { UsersModule } from './components/users/users.module';
 import { MessageService } from './services/MessageService';
+import { CategoriesModule } from './components/categories/categories.module';
+import { CategoriesRoutingModule } from './components/categories/categories-routing.module';
+import { DepartmentsModule } from './components/departments/departments.module';
+import { DepartmentsRoutingModule } from './components/departments/departments-routing.module';
+import { DesignationModule } from './components/designation/designation.module';
+import { DesignationRoutingModule } from './components/designation/designation-routing.module';
+import { LeavesModule } from './components/leaves/leaves.module';
+import { LeavesRoutingModule } from './components/leaves/leaves-routing.module';
 
 @NgModule({
   declarations: [
@@ -110,8 +118,22 @@ import { MessageService } from './services/MessageService';
     ResourcesModule,
     ResourcesRoutingModule,
     RolesModule,
+    
     UsersModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+
+
+    CategoriesModule,
+    CategoriesRoutingModule,
+
+    DepartmentsModule,
+    DepartmentsRoutingModule,
+
+    DesignationModule,
+    DesignationRoutingModule,
+
+    LeavesModule,
+    LeavesRoutingModule
 
   ],
   providers: [
