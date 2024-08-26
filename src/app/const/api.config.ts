@@ -4,6 +4,10 @@ export const API_VERSIONS = {
     v2: 'v2',
   };
   export const API_ENDPOINTS = {
+
+    categories_getAllActiveCategoriesV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/categories/getActiveCategoryHierarchy`,
+
+
     permissionV1: `${API_BASE_URL}/api/${API_VERSIONS.v1}/permission/getAllActive`,
     permissionV2: `/api/${API_VERSIONS.v2}/permission`,
     
