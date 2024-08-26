@@ -9,7 +9,6 @@ import { HttpService } from 'src/app/services/http.service';
 import { AddRoleDialogComponent } from '../add-role-dialog/add-role-dialog.component';
 import { HttpParams, HttpResponse } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 
 
 export interface RolesDto {
@@ -27,8 +26,10 @@ export interface RolesDto {
 export class ViewRolesComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   displayedColumns: string[] = ['id', 'roleName', 'description', 'actions'];
   dataSource!: MatTableDataSource<RolesDto>;
+
   resources: any[] = [];
 
   totalItems = 0;
@@ -39,7 +40,6 @@ export class ViewRolesComponent {
 
   //You can use @ViewChild to get a reference to a DOM element in your template.
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  //@ViewChild(MatSort) sort: MatSort;
 
   constructor(public dialog: MatDialog,
     private _snackBar: MatSnackBar,
@@ -53,33 +53,11 @@ export class ViewRolesComponent {
     this.getRoles();
   }
   getRoles() {
-    const params = new HttpParams().set('pageIndex', this.pageIndex).set('pageSize', this.pageSize);
+    const params = this.createHttpParams()
     this.httpService.get_<any>(API_ENDPOINTS.resources_getAllRolesV1, { params })
-      .pipe(
-        catchError(error => {
-          console.error('Error in POST request:', error);
-          // Handle the error here or re-throw it to propagate
-          // return throwError(error); // Uncomment this line if you want to propagate the error
-          return throwError(() => error); // Or return a new observable with the error
-        })
-      )
+      .pipe(catchError(this.handleError))
       .subscribe({
-        next: (response: HttpResponse<any>) => {
-          console.log('Response:', response);
-          if (response.status === 204) {
-            // Handle 204 No Content
-            this.resources = [];
-            this.dataSource.data = this.resources;
-            this.totalItems = 0;
-            this.pageIndex = 0;
-          } else {
-            this.resources = response.body.items;
-            this.dataSource.data = this.resources;
-            this.totalItems = response.body.totalItems;
-            this.pageIndex = response.body.pageIndex;
-            this.pageSize = response.body.pageSize;
-          }
-        },
+        next: this.handleResponse,
         error: error => {
           console.error('Error in GET request:', error);
         }
@@ -127,71 +105,9 @@ export class ViewRolesComponent {
     this.filterValue = (event.target as HTMLInputElement).value;
     console.log("searchValue:", this.filterValue);
     if (this.filterValue.length >= 3) {
-      // HttpParams is used to create and manipulate query parameters for HTTP requests. 
-      //set replaces the value of a parameter if it already exists.
-      //append adds a new value to the parameter if it already exists or creates a new parameter if it doesn’t.
-      const params = new HttpParams().set('searchValue', this.filterValue).set('pageIndex', this.pageIndex).set('pageSize', this.pageSize);;
-      this.httpService.get_<any>(API_ENDPOINTS.resources_getAllRolesV1, { params })
-        .pipe(
-          catchError(error => {
-            console.error('Error in GET request:', error);
-            // Handle the error here or re-throw it to propagate
-            // return throwError(error); // Uncomment this line if you want to propagate the error
-            return throwError(() => error); // Or return a new observable with the error
-          })
-        )
-        .subscribe({
-          next: (response: HttpResponse<any>) => {
-            console.log('Response:', response);
-            if (response.status === 204) {
-              // Handle 204 No Content
-              this.resources = [];
-              this.dataSource.data = this.resources;
-              this.totalItems = 0;
-              this.pageIndex = 0;
-            } else {
-              this.resources = response.body.items;
-              this.dataSource.data = this.resources;
-              this.totalItems = response.body.totalItems;
-              this.pageIndex = response.body.pageIndex;
-              this.pageSize = response.body.pageSize;
-            }
-          },
-          error: error => {
-            console.error('Error in GET request:', error);
-          }
-        });
+      this.getRoles();
     } else if (this.filterValue.length === 0) {
-      this.httpService.get_<any>(API_ENDPOINTS.resources_getAllRolesV1)
-        .pipe(
-          catchError(error => {
-            console.error('Error in GET request:', error);
-            // Handle the error here or re-throw it to propagate
-            // return throwError(error); // Uncomment this line if you want to propagate the error
-            return throwError(() => error); // Or return a new observable with the error
-          })
-        )
-        .subscribe({
-          next: (response: HttpResponse<any>) => {
-            console.log('Response:', response);
-            if (response.status === 204) {
-              // Handle 204 No Content
-              this.resources = [];
-              this.dataSource.data = this.resources;
-              this.totalItems = 0;
-              this.pageIndex = 0;
-            } else {
-              this.resources = response.body.items;
-              this.dataSource.data = this.resources;
-              this.totalItems = response.body.totalItems;
-              this.pageIndex = response.body.pageIndex;
-              this.pageSize = response.body.pageSize;
-            }
-          },
-          error: error => {
-            console.error('Error in GET request:', error);
-          }
-        });
+      this.getRoles();
     }
   }
 
@@ -199,36 +115,49 @@ export class ViewRolesComponent {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     console.log("pageNumber and pageSize :", this.pageIndex, ":", this.pageSize)
-    const params = new HttpParams().set('searchValue', this.filterValue).set('pageIndex', this.pageIndex).set('pageSize', this.pageSize);;
-    this.httpService.get_<any>(API_ENDPOINTS.resources_getAllRolesV1, { params })
-      .pipe(
-        catchError(error => {
-          console.error('Error in GET request:', error);
-          // Handle the error here or re-throw it to propagate
-          // return throwError(error); // Uncomment this line if you want to propagate the error
-          return throwError(() => error); // Or return a new observable with the error
-        })
-      )
-      .subscribe({
-        next: (response: HttpResponse<any>) => {
-          console.log('Response:', response);
-          if (response.status === 204) {
-            // Handle 204 No Content
-            this.resources = [];
-            this.dataSource.data = this.resources;
-            this.totalItems = 0;
-            this.pageIndex = 0;
-          } else {
-            this.resources = response.body.items;
-            this.dataSource.data = this.resources;
-            this.totalItems = response.body.totalItems;
-            this.pageIndex = response.body.pageIndex;
-            this.pageSize = response.body.pageSize;
-          }
-        },
-        error: error => {
-          console.error('Error in GET request:', error);
-        }
-      });
+    this.getRoles();
+  }
+
+
+  private createHttpParams(): HttpParams {
+    let params = new HttpParams()
+      .set('pageIndex', this.pageIndex)
+      .set('pageSize', this.pageSize);
+
+    if (this.filterValue) {
+      params = params.set('searchValue', this.filterValue);
+    }
+
+    return params;
+  }
+
+  private handleError = (error: any) => {
+    console.error('Error in request:', error);
+    this._snackBar.open('An error occurred while processing your request.', 'Close', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: 3000
+    });
+    return throwError(() => error);
+  }
+
+  private handleResponse = (response: HttpResponse<any>) => {
+   console.log("Response GET resquest : ",response)
+    if (response.status === 204) {
+      this.resetData();
+    } else {
+      this.resources = response.body.items || [];
+      this.dataSource.data = this.resources;
+      this.totalItems = response.body.totalItems || 0;
+      this.pageIndex = response.body.pageIndex || 0;
+      this.pageSize = response.body.pageSize || 10;
+    }
+  }
+
+  private resetData() {
+    this.resources = [];
+    this.dataSource.data = this.resources;
+    this.totalItems = 0;
+    this.pageIndex = 0;
   }
 }
