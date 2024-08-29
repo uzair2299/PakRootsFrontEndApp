@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, NgZone, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
@@ -40,7 +40,9 @@ export class ViewCategoriesComponent {
 
   constructor(public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private httpService: HttpService, private router: Router) { }
+    private httpService: HttpService,
+    private router: Router,
+    private ngZone: NgZone) { }
 
   categories: Category[] = [];
   //This control manages the nested tree structure of the data
@@ -59,8 +61,12 @@ export class ViewCategoriesComponent {
     const dialogRef = this.dialog.open(AddCategoryComponent, {
       disableClose: false, // Prevents closing by clicking outside
       width: '50%', // Set the width to 50% of the viewport
-      height: '80%', // Set the height to 80% of the viewport
-      data: {},
+      //height: '80%', // Set the height to 80% of the viewport
+      //data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("after closing dialog")
     });
   }
 
@@ -82,7 +88,7 @@ export class ViewCategoriesComponent {
           } else {
             this.categories = response.body;
             this.dataSource.data = this.categories;
-            console.log("received data :",this.categories)
+            console.log("received data :", this.categories)
           }
         },
         error: error => {
@@ -146,8 +152,14 @@ export class ViewCategoriesComponent {
     this.router.navigate([`/resources/getResourceById`, resourceId]);
   }
 
-  
+
   //This function is used to determine if a given node has children or not.
   //This function is used by the material tree component to display expand/collapse icons for nodes with children.
   hasChild = (_: number, node: Category) => !!node.children && node.children.length > 0;
+  onNodeDoubleClick(node: any) {
+    console.log('Double clicked on node:', node);
+    // You can use the node's data (e.g., node.id) to open an edit form for that category
+  
+  }
+
 }

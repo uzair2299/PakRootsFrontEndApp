@@ -83,7 +83,6 @@ export class AddRoleDialogComponent {
           })
         ).subscribe({
           next: response => {
-            this.router.navigate(['/roles']);
             console.log('POST request successful:', response);
             this.addRoleForm.reset() // Reset the form after successful API call
             this.dialogRef.close();

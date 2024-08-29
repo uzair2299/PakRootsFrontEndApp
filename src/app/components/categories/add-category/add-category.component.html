@@ -1,1 +1,27 @@
-<p>add-category works!</p>
+<div class="password-set-container">
+    <h2 class="form-heading"> {{ data ? 'Update Category' : 'Add New Category' }}</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="submitForm()">
+      <mat-form-field class="full-width">
+        <mat-label>Category Name</mat-label>
+        <input matInput  formControlName="name" required name="name">
+      </mat-form-field>
+      <mat-checkbox formControlName="isActive">Is Active</mat-checkbox>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Parent Category</mat-label>
+        <mat-select  formControlName="parentId" name="parentId">
+          <mat-option *ngFor="let category of categoriesList" [value]="category.id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea  matInput  formControlName="description" required name="description"></textarea>
+      </mat-form-field>
+      <div class="button-section">
+        <button mat-raised-button color="primary" type="submit" class="full-button">{{ data ? 'Update Category' : 'Add New Category' }}</button>
+        <button mat-raised-button color="warn" type="button" class="full-button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
