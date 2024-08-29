@@ -9,14 +9,14 @@
 
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
     <!-- Leaf node template -->
-    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle (dblclick)="onNodeDoubleClick(node)">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle (contextmenu)="openContextMenu($event, node)" [matMenuTriggerFor]="contextMenu">
       <button mat-icon-button disabled></button>
       {{ node.name }}
     </mat-tree-node>
   
     <!-- Expandable node template -->
     <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-      <div class="mat-tree-node" (dblclick)="onNodeDoubleClick(node)">
+      <div class="mat-tree-node" (contextmenu)="openContextMenu($event, node)" [matMenuTriggerFor]="contextMenu">
         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
           <mat-icon class="mat-icon-rtl-mirror">
             {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
@@ -29,4 +29,8 @@
       </div>
     </mat-nested-tree-node>
   </mat-tree>
-  
+  <mat-menu #contextMenu="matMenu">
+    <button mat-menu-item (click)="viewCategory(selectedNode)">View</button>
+    <button mat-menu-item (click)="editCategory(selectedNode)">Edit</button>
+    <button mat-menu-item (click)="deleteCategory(selectedNode)">Delete</button>
+  </mat-menu>

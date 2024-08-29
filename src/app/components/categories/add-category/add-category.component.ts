@@ -24,8 +24,11 @@ export class AddCategoryComponent {
     private httpService: HttpService,
     private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<AddCategoryComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { roleId: number }
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: any
+    //    @Inject(MAT_DIALOG_DATA) public data: { roleId: number }
+  ) { 
+    console.log('Received data:', data);
+  }
 
   categoryForm = new FormGroup({
     name: new FormControl('', [Validators.required]),

@@ -15,6 +15,7 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
 import { HttpResponse } from '@angular/common/http';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 
 export interface Category {
@@ -34,15 +35,21 @@ export class ViewCategoriesComponent {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-
+  selectedNode: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatMenuTrigger) matMenuTrigger!: MatMenuTrigger;
 
+  // ngAfterViewInit() {
+  //   // This ensures matMenuTrigger is initialized after the view is rendered
+  //   if (this.matMenuTrigger) {
+  //     console.log('matMenuTrigger is initialized');
+  //   }
+  // }
   constructor(public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private httpService: HttpService,
-    private router: Router,
-    private ngZone: NgZone) { }
+    private router: Router) { }
 
   categories: Category[] = [];
   //This control manages the nested tree structure of the data
@@ -159,7 +166,58 @@ export class ViewCategoriesComponent {
   onNodeDoubleClick(node: any) {
     console.log('Double clicked on node:', node);
     // You can use the node's data (e.g., node.id) to open an edit form for that category
-  
+ 
   }
 
+
+  openContextMenu(event: MouseEvent, node: any) {
+    console.log(event)
+    if (event.button === 2) { // Right-click
+      console.log("Opening context menu");
+      event.preventDefault(); // Prevent the default context menu from showing up
+      this.selectedNode = node; // Set the node as the selected node
+      console.log("Selected Node: ", this.selectedNode);
+      if (this.matMenuTrigger) {
+        // Position the menu at the cursor position
+        const { clientX: x, clientY: y } = event;
+        this.matMenuTrigger.openMenu(); 
+
+    }
+  }
+}
+
+  editCategory(node: any) {
+    console.log('Edit category:', node);
+    this.selectedNode = node;
+
+    // Open the edit form or perform edit logic
+
+    const dialogRef = this.dialog.open(AddCategoryComponent, {
+      disableClose: false, // Prevents closing by clicking outside
+      width: '50%', // Set the width to 50% of the viewport
+      //height: '80%', // Set the height to 80% of the viewport
+      data: this.selectedNode,
+    });
+  }
+
+  deleteCategory(node: any) {
+    console.log('Delete category:', node);
+    // Perform delete logic
+   
+    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+      width: '250px',
+      data: { title: 'Delete Confirmation', message: 'Are you sure you want to delete this item?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Confirmation result", result)
+        if (result) {
+
+        }
+    });
+  }
+
+  viewCategory(node: any) {
+    console.log('Selected category:', node);   
+  }
 }
